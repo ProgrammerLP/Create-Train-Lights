@@ -1,4 +1,4 @@
-package net.adeptstack.fabric.client;
+package net.adeptstack.ctl.fabric.client;
 
 import net.adeptstack.ctl.registry.ModBlocks;
 import net.fabricmc.api.ClientModInitializer;

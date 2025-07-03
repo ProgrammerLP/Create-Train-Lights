@@ -1,4 +1,4 @@
-package net.adeptstack.fabric;
+package net.adeptstack.ctl.fabric;
 
 import net.fabricmc.api.ModInitializer;
 

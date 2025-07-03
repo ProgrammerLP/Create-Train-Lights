@@ -9,6 +9,7 @@ import com.simibubi.create.content.contraptions.behaviour.MovementContext;
 import com.simibubi.create.content.trains.entity.Carriage;
 import com.simibubi.create.content.trains.entity.CarriageContraptionEntity;
 import com.simibubi.create.content.trains.entity.Train;
+import net.adeptstack.ctl.blocks.lights.LightBlockBase;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.InteractionHand;
@@ -35,7 +36,7 @@ public class ContraptionControlsMovingInteractionMixin {
                                                AbstractContraptionEntity contraptionEntity, CallbackInfoReturnable<Boolean> cir,
                                                Contraption contraption, MutablePair<StructureBlockInfo, MovementContext> actor,
                                                MovementContext ctx, ItemStack filter, boolean disable) {
-        if (contraptionEntity instanceof CarriageContraptionEntity cce && filter.is(ItemTags.DOORS)) {
+        if (contraptionEntity instanceof CarriageContraptionEntity cce && ctx.state.getBlock() instanceof LightBlockBase) {
             Carriage carriage = cce.getCarriage();
             Train train = carriage.train;
             for (Carriage c : train.carriages) {

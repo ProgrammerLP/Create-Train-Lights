@@ -16,10 +16,10 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.adeptstack.fabric.MainFabric"
+      "net.adeptstack.ctl.fabric.MainFabric"
     ],
     "client": [
-      "net.adeptstack.fabric.client.MainFabricClient"
+      "net.adeptstack.ctl.fabric.client.MainFabricClient"
     ]
   },
   "mixins": [
