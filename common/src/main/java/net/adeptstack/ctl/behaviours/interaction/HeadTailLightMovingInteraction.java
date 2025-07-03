@@ -1,4 +1,4 @@
-package net.adeptstack.ctl.behaviours.headTailLight;
+package net.adeptstack.ctl.behaviours.interaction;
 
 import com.simibubi.create.content.contraptions.Contraption;
 import com.simibubi.create.content.contraptions.behaviour.SimpleBlockMovingInteraction;

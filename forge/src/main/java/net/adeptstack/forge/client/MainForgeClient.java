@@ -1,8 +1,5 @@
 package net.adeptstack.forge.client;
 
-
-import dev.architectury.registry.client.rendering.RenderTypeRegistry;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
