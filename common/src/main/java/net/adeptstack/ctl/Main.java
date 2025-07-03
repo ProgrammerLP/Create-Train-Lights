@@ -1,15 +1,12 @@
-package net.adeptstack;
+package net.adeptstack.ctl;
 
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.simibubi.create.foundation.item.ItemDescription;
 import com.simibubi.create.foundation.item.KineticStats;
 import com.simibubi.create.foundation.item.TooltipHelper;
 import com.simibubi.create.foundation.item.TooltipModifier;
-import dev.architectury.platform.Platform;
-import net.adeptstack.blocks.doors.slidingDoor.TrainSlidingDoorBlock;
-import net.adeptstack.network.ModNetwork;
-import net.adeptstack.registry.*;
-import net.fabricmc.api.EnvType;
+import net.adeptstack.ctl.blocks.lights.LightBlockBase;
+import net.adeptstack.ctl.registry.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -22,16 +19,10 @@ public final class Main {
 
     public static void init() {
         // Write common init code here.
-        ModBlockEntities.register();
         ModTabs.CREATIVE_MODE_TABS.register();
         ModBlocks.register();
         ModItems.register();
         ModSounds.SOUND_EVENTS.register();
-        ModNetwork.init();
-        if (Platform.getEnv() == EnvType.CLIENT) {
-            ModPartialModels.init();
-        }
-        ModTags.register();
     }
 
     public static ResourceLocation asResource(String path) {
@@ -42,7 +33,7 @@ public final class Main {
     public static KineticStats create(Item item) {
         if (item instanceof BlockItem blockItem) {
             Block block = blockItem.getBlock();
-            if (block instanceof TrainSlidingDoorBlock) {
+            if (block instanceof LightBlockBase) {
                 return new KineticStats(block);
             }
             // ...

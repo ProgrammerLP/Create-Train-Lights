@@ -1,4 +1,4 @@
-package net.adeptstack.mixin;
+package net.adeptstack.ctl.mixin;
 
 import com.simibubi.create.AllSoundEvents;
 import com.simibubi.create.content.contraptions.AbstractContraptionEntity;

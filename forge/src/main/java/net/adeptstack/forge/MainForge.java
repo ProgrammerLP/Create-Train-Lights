@@ -4,7 +4,7 @@ import dev.architectury.platform.forge.EventBuses;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
-import net.adeptstack.Main;
+import net.adeptstack.ctl.Main;
 
 @Mod(Main.MOD_ID)
 public final class MainForge {

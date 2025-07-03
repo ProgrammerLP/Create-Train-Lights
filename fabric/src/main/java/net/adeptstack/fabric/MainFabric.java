@@ -2,7 +2,7 @@ package net.adeptstack.fabric;
 
 import net.fabricmc.api.ModInitializer;
 
-import net.adeptstack.Main;
+import net.adeptstack.ctl.Main;
 
 public final class MainFabric implements ModInitializer {
     @Override
