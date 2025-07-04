@@ -7,7 +7,7 @@ import net.adeptstack.ctl.behaviours.movement.HeadTailLightMovementBehaviour;
 import net.adeptstack.ctl.behaviours.interaction.HeadTailLightMovingInteraction;
 import net.adeptstack.ctl.behaviours.movement.InteriorLightMovementBehaviour;
 import net.adeptstack.ctl.behaviours.interaction.InteriorLightMovingInteraction;
-import net.adeptstack.ctl.blocks.lights.HeadTailLightBlock;
+import net.adeptstack.ctl.blocks.lights.HeadTailLightBlockBase;
 import net.adeptstack.ctl.blocks.lights.LightBlockBase;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.block.*;
@@ -44,7 +44,7 @@ public class CTLBuilderTransformers {
                 .register();
     }
 
-    public static <B extends HeadTailLightBlock, P> NonNullUnaryOperator<BlockBuilder<B, P>> htLightBlock() {
+    public static <B extends HeadTailLightBlockBase, P> NonNullUnaryOperator<BlockBuilder<B, P>> htLightBlock() {
         return b -> b.initialProperties(() -> Blocks.REDSTONE_LAMP) // for villager AI..
                 .properties(p -> p.strength(3.0F, 6.0F))
                 .addLayer(() -> RenderType::cutout)
@@ -56,13 +56,13 @@ public class CTLBuilderTransformers {
                 .build();
     }
 
-    public static BlockEntry<HeadTailLightBlock> HeadTailLightBlock(String id, MapColor color) {
+    public static BlockEntry<HeadTailLightBlockBase> HeadTailLightBlock(String id, MapColor color) {
         return REGISTRATE
-                .block(id, HeadTailLightBlock::new)
+                .block(id, HeadTailLightBlockBase::new)
                 .initialProperties(() -> Blocks.IRON_BLOCK)
                 .properties(p -> p.mapColor(color)
                         .sound(SoundType.AMETHYST_CLUSTER)
-                        .lightLevel(state -> state.getValue(LightBlockBase.LIT) ? state.getValue(HeadTailLightBlock.LIGHT_MODE) == 0 ? 15 : 10 : 0))
+                        .lightLevel(state -> state.getValue(LightBlockBase.LIT) ? state.getValue(HeadTailLightBlockBase.LIGHT_MODE) == 0 ? 15 : 10 : 0))
                 .transform(htLightBlock())
                 .register();
     }

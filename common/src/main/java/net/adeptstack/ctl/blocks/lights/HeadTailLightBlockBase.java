@@ -13,11 +13,11 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
 
-public class HeadTailLightBlock extends LightBlockBase {
+public class HeadTailLightBlockBase extends LightBlockBase {
 
     public static final IntegerProperty LIGHT_MODE = IntegerProperty.create("lightmode", 0, 1);
 
-    public HeadTailLightBlock(Properties properties) {
+    public HeadTailLightBlockBase(Properties properties) {
         super(properties);
 
         this.registerDefaultState(this.stateDefinition.any()
