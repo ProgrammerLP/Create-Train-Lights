@@ -8,10 +8,10 @@ import net.minecraft.world.level.material.MapColor;
 public class ModBlocks {
 
     public static final BlockEntry<LightBlockBase> TEST_LIGHT =
-            TrainUtilitiesBuilderTransformers.InteriorLightBlock("test_light", MapColor.COLOR_BLACK);
+            CTLBuilderTransformers.InteriorLightBlock("test_light", MapColor.COLOR_BLACK);
 
     public static final BlockEntry<HeadTailLightBlock> TEST_HEADTAIL_LIGHT =
-            TrainUtilitiesBuilderTransformers.HeadTailLightBlock("test_light_two", MapColor.COLOR_BLACK);
+            CTLBuilderTransformers.HeadTailLightBlock("test_light_two", MapColor.COLOR_BLACK);
 
     public static void register() { }
 }

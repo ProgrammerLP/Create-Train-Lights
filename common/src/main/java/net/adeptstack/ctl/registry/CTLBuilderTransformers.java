@@ -19,7 +19,7 @@ import static com.simibubi.create.foundation.data.TagGen.pickaxeOnly;
 import static net.adeptstack.ctl.Main.REGISTRATE;
 
 @SuppressWarnings({"unused","removal"})
-public class TrainUtilitiesBuilderTransformers {
+public class CTLBuilderTransformers {
 
     public static <B extends LightBlockBase, P> NonNullUnaryOperator<BlockBuilder<B, P>> interiorLightBlock() {
         return b -> b.initialProperties(() -> Blocks.REDSTONE_LAMP) // for villager AI..
@@ -41,8 +41,6 @@ public class TrainUtilitiesBuilderTransformers {
                         .sound(SoundType.AMETHYST_CLUSTER)
                         .lightLevel(state -> state.getValue(LightBlockBase.LIT) ? 15 : 0))
                 .transform(interiorLightBlock())
-                .item()
-                .build()
                 .register();
     }
 
@@ -66,8 +64,6 @@ public class TrainUtilitiesBuilderTransformers {
                         .sound(SoundType.AMETHYST_CLUSTER)
                         .lightLevel(state -> state.getValue(LightBlockBase.LIT) ? state.getValue(HeadTailLightBlock.LIGHT_MODE) == 0 ? 15 : 10 : 0))
                 .transform(htLightBlock())
-                .item()
-                .build()
                 .register();
     }
 
