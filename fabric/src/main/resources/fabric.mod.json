@@ -3,13 +3,13 @@
   "id": "ctl",
   "version": "${version}",
   "name": "Create: Train Lights",
-  "description": "Mod that adds custom sliding doors with realistic opening & closing sounds and station blocks, and also building blocks for stations and trains.",
+  "description": "Create addon that adds custom interior and head tail lights for trains that automatically switch between headlight and tail light depending on the direction of travel.",
   "authors": [
     "ProgrammerLP"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://github.com/ProgrammerLP/Create-Train-Lights",
+    "sources": "https://github.com/ProgrammerLP/Create-Train-Lights"
   },
   "license": "AGPL-3",
   "icon": "mod_icon.png",

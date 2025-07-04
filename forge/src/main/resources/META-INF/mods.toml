@@ -1,15 +1,15 @@
 modLoader = "javafml"
 loaderVersion = "[47,)"
-issueTrackerURL = "https://github.com/ProgrammerLP/TrainUtilitiesMod/issues"
+issueTrackerURL = "https://github.com/ProgrammerLP/Create-Train-Lights/issues"
 license = "AGPL-3"
 
 [[mods]]
 modId = "ctl"
 version = "${version}"
-displayName = "Create: TrainUtilities"
+displayName = "Create: Train Lights"
 authors = "ProgrammerLP"
 description = '''
-Mod that adds custom sliding doors with realistic opening & closing sounds and station blocks, and also building blocks for stations and trains.
+Create addon that adds custom interior and head tail lights for trains that automatically switch between headlight and tail light depending on the direction of travel.
 '''
 logoFile = "mod_icon.png"
 
