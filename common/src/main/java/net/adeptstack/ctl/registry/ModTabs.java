@@ -18,6 +18,6 @@ public class ModTabs {
     public static final RegistrySupplier<CreativeModeTab> CTL_TAB = CREATIVE_MODE_TABS.register(new ResourceLocation(MOD_ID, "ctl_tab"),
             () -> CreativeTabRegistry.create(
                     Component.translatable("itemGroup." + MOD_ID + ".ctl_tab"), // Tab Name
-                    () -> new ItemStack(ModBlocks.TEST_LIGHT.asItem()) // Icon
+                    () -> new ItemStack(ModBlocks.ILB_BLOCK.asItem()) // Icon
             ));
 }

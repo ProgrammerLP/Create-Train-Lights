@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "lit=false,facing=north": {
+      "model": "ctl:block/ilb/grid_ilb",
+      "y": 180
+    },
+    "lit=false,facing=south": {
+      "model": "ctl:block/ilb/grid_ilb"
+    },
+    "lit=false,facing=west": {
+      "model": "ctl:block/ilb/grid_ilb",
+      "y": 270
+    },
+    "lit=false,facing=east": {
+      "model": "ctl:block/ilb/grid_ilb",
+      "y": 90
+    },
+    "lit=true,facing=north": {
+      "model": "ctl:block/ilb/grid_ilb_on",
+      "y": 180
+    },
+    "lit=true,facing=south": {
+      "model": "ctl:block/ilb/grid_ilb_on"
+    },
+    "lit=true,facing=west": {
+      "model": "ctl:block/ilb/grid_ilb_on",
+      "y": 270
+    },
+    "lit=true,facing=east": {
+      "model": "ctl:block/ilb/grid_ilb_on",
+      "y": 90
+    }
+  }
+}

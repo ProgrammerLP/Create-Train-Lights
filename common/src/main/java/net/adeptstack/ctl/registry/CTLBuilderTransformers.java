@@ -9,6 +9,9 @@ import net.adeptstack.ctl.behaviours.movement.InteriorLightMovementBehaviour;
 import net.adeptstack.ctl.behaviours.interaction.InteriorLightMovingInteraction;
 import net.adeptstack.ctl.blocks.lights.HeadTailLightBlockBase;
 import net.adeptstack.ctl.blocks.lights.LightBlockBase;
+import net.adeptstack.ctl.blocks.lights.interiorLights.GridInteriorLightBlock;
+import net.adeptstack.ctl.blocks.lights.interiorLights.HorizontalInteriorLightBlock;
+import net.adeptstack.ctl.blocks.lights.interiorLights.SlopedInteriorLightBlock;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.material.MapColor;
@@ -39,6 +42,28 @@ public class CTLBuilderTransformers {
                 .initialProperties(() -> Blocks.IRON_BLOCK)
                 .properties(p -> p.mapColor(color)
                         .sound(SoundType.AMETHYST_CLUSTER)
+                        .lightLevel(state -> state.getValue(LightBlockBase.LIT) ? 15 : 0))
+                .transform(interiorLightBlock())
+                .register();
+    }
+
+    public static BlockEntry<SlopedInteriorLightBlock> SlopedInteriorLightBlock(String id, MapColor color) {
+        return REGISTRATE
+                .block(id, SlopedInteriorLightBlock::new)
+                .initialProperties(() -> Blocks.IRON_BLOCK)
+                .properties(p -> p.mapColor(color)
+                        .sound(SoundType.GLASS)
+                        .lightLevel(state -> state.getValue(LightBlockBase.LIT) ? 15 : 0))
+                .transform(interiorLightBlock())
+                .register();
+    }
+
+    public static BlockEntry<GridInteriorLightBlock> GridInteriorLightBlock(String id, MapColor color) {
+        return REGISTRATE
+                .block(id, GridInteriorLightBlock::new)
+                .initialProperties(() -> Blocks.IRON_BLOCK)
+                .properties(p -> p.mapColor(color)
+                        .sound(SoundType.GLASS)
                         .lightLevel(state -> state.getValue(LightBlockBase.LIT) ? 15 : 0))
                 .transform(interiorLightBlock())
                 .register();

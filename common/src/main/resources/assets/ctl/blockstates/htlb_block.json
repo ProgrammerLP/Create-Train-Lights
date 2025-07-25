@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "ctl:block/test/off"
+    },
+    "lit=true,lightmode=0": {
+      "model": "ctl:block/test/zero"
+    },
+    "lit=true,lightmode=1": {
+      "model": "ctl:block/test/one"
+    }
+  }
+}

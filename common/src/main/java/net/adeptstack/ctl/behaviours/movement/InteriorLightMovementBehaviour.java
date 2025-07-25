@@ -92,23 +92,6 @@ public class InteriorLightMovementBehaviour implements MovementBehaviour {
         return true;
     }
 
-    protected Direction getLightFacing(MovementContext context) {
-        Direction stateFacing = context.state.getValue(LightBlockBase.FACING);
-        Direction originalFacing = Direction.get(Direction.AxisDirection.POSITIVE, stateFacing.getAxis());
-        Vec3 centerOfContraption = context.contraption.bounds.getCenter();
-        Vec3 diff = Vec3.atCenterOf(context.localPos)
-                .add(Vec3.atLowerCornerOf(stateFacing.getNormal())
-                        .scale(-.45f))
-                .subtract(centerOfContraption);
-        if (originalFacing.getAxis()
-                .choose(diff.x, diff.y, diff.z) < 0)
-            originalFacing = originalFacing.getOpposite();
-
-        Vec3 directionVec = Vec3.atLowerCornerOf(originalFacing.getNormal());
-        directionVec = context.rotation.apply(directionVec);
-        return Direction.getNearest(directionVec.x, directionVec.y, directionVec.z);
-    }
-
     @Override
     public boolean renderAsNormalBlockEntity() {
         return true;
