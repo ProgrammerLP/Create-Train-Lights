@@ -3,9 +3,10 @@ package net.adeptstack.ctl.registry;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import net.adeptstack.ctl.blocks.lights.HeadTailLightBlockBase;
 import net.adeptstack.ctl.blocks.lights.LightBlockBase;
-import net.adeptstack.ctl.blocks.lights.interiorLights.GridInteriorLightBlock;
-import net.adeptstack.ctl.blocks.lights.interiorLights.PanelInteriorLightBlock;
-import net.adeptstack.ctl.blocks.lights.interiorLights.SlopedInteriorLightBlock;
+import net.adeptstack.ctl.blocks.lights.interiorLights.fulldirectional.HalfPanelInteriorLightBlock;
+import net.adeptstack.ctl.blocks.lights.interiorLights.horizontal.GridInteriorLightBlock;
+import net.adeptstack.ctl.blocks.lights.interiorLights.fulldirectional.PanelInteriorLightBlock;
+import net.adeptstack.ctl.blocks.lights.interiorLights.horizontal.SlopedInteriorLightBlock;
 import net.minecraft.world.level.material.MapColor;
 
 public class ModBlocks {
@@ -24,6 +25,9 @@ public class ModBlocks {
 
     public static final BlockEntry<PanelInteriorLightBlock> PANEL_ILB =
             CTLBuilderTransformers.PanelInteriorLightBlock("panel_ilb", MapColor.COLOR_GRAY);
+
+    public static final BlockEntry<HalfPanelInteriorLightBlock> HALFPANEL_ILB =
+            CTLBuilderTransformers.HalfPanelInteriorLightBlock("halfpanel_ilb", MapColor.COLOR_GRAY);
 
     public static void register() { }
 }

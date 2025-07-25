@@ -1,6 +1,7 @@
-package net.adeptstack.ctl.blocks.lights.interiorLights;
+package net.adeptstack.ctl.blocks.lights.interiorLights.fulldirectional;
 
 import net.adeptstack.ctl.EBlockZPosition;
+import net.adeptstack.ctl.blocks.lights.interiorLights.FullDirectionalInteriorLightBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -9,12 +10,14 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class PanelInteriorLightBlock extends FullDirectionalInteriorLightBlock {
+public class HalfPanelInteriorLightBlock extends FullDirectionalInteriorLightBlock {
     public static final EnumProperty<EBlockZPosition> Z_ALIGN = EnumProperty.create("z_align", EBlockZPosition.class);
+    public static final DirectionProperty H_FACING = DirectionProperty.create("h_facing");
 
     private static final VoxelShape SHAPE_CT_SN = Block.box(0, 0, 6.5, 16, 16, 9.5);
     private static final VoxelShape SHAPE_CT_EW = Block.box(6.5, 0, 0, 9.5, 16, 16);
@@ -28,16 +31,17 @@ public class PanelInteriorLightBlock extends FullDirectionalInteriorLightBlock {
     private static final VoxelShape SHAPE_U = Block.box(0, 13, 0, 16, 16, 16);
     private static final VoxelShape SHAPE_D = Block.box(0, 0, 0, 16, 3, 16);
 
-    public PanelInteriorLightBlock(BlockBehaviour.Properties properties) {
+    public HalfPanelInteriorLightBlock(BlockBehaviour.Properties properties) {
         super(properties);
 
         this.registerDefaultState(this.stateDefinition.any()
-                .setValue(Z_ALIGN, EBlockZPosition.CENTER));
+                .setValue(Z_ALIGN, EBlockZPosition.CENTER)
+                .setValue(H_FACING, Direction.NORTH));
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         super.createBlockStateDefinition(pBuilder);
-        pBuilder.add(Z_ALIGN);
+        pBuilder.add(Z_ALIGN).add(H_FACING);
     }
 
     @Override
@@ -64,30 +68,40 @@ public class PanelInteriorLightBlock extends FullDirectionalInteriorLightBlock {
         }
     }
 
-    public BlockState getDefaultPlacementState(BlockPlaceContext context)  {
-        BlockState stateForPlacement = super.getStateForPlacement(context);
-        Direction direction = context.getClickedFace();
-        Direction looking = context.getHorizontalDirection();
-        Direction.Axis axis = looking.getAxis();
-        Direction.AxisDirection axisDirection = looking.getAxisDirection();
+    public BlockState getDefaultPlacementState(BlockPlaceContext context) {
+        Direction clickedFace = context.getClickedFace();
+        Direction horizontalFacing = context.getHorizontalDirection().getOpposite();
+        BlockPos blockPos = context.getClickedPos();
+        BlockState baseState = this.defaultBlockState().setValue(FACING, clickedFace);
 
-        double xzPos = 0.5f;
-        if (axis == Direction.Axis.X) {
-            xzPos = context.getClickLocation().x - context.getClickedPos().getX();
-        } else if (axis == Direction.Axis.Z) {
-            xzPos = context.getClickLocation().z - context.getClickedPos().getZ();
+        // Optional: horizontale Blickrichtung bei Decke/Boden
+        if (clickedFace == Direction.UP || clickedFace == Direction.DOWN) {
+            baseState = baseState.setValue(H_FACING, horizontalFacing);
         }
+
+        // z_align bestimmen
+        double clickY = context.getClickLocation().y - blockPos.getY();
+        double clickZ = context.getClickLocation().z - blockPos.getZ();
+        double clickX = context.getClickLocation().x - blockPos.getX();
 
         EBlockZPosition zAlign = EBlockZPosition.CENTER;
 
-        if (direction == context.getPlayer().getDirection().getOpposite() || (axisDirection == Direction.AxisDirection.POSITIVE ? xzPos > 0.66666666D : xzPos < 0.33333333D)) {
-            zAlign = EBlockZPosition.POSITIVE;
-        }  else if (direction == context.getPlayer().getDirection() || (axisDirection == Direction.AxisDirection.POSITIVE ? xzPos < 0.33333333D : xzPos > 0.66666666D)) {
-            zAlign = EBlockZPosition.NEGATIVE;
+        if (clickedFace.getAxis().isVertical()) {
+            // Decke oder Boden: z_align über Blickrichtung
+            if (horizontalFacing.getAxis() == Direction.Axis.Z) {
+                zAlign = clickZ < 0.33 ? EBlockZPosition.NEGATIVE : (clickZ > 0.66 ? EBlockZPosition.POSITIVE : EBlockZPosition.CENTER);
+            } else {
+                zAlign = clickX < 0.33 ? EBlockZPosition.NEGATIVE : (clickX > 0.66 ? EBlockZPosition.POSITIVE : EBlockZPosition.CENTER);
+            }
+        } else {
+            // Wandplatzierung: z_align über y-Achse
+            zAlign = clickY < 0.33 ? EBlockZPosition.NEGATIVE : (clickY > 0.66 ? EBlockZPosition.POSITIVE : EBlockZPosition.CENTER);
         }
 
-        return stateForPlacement
-                .setValue(FACING, context.getNearestLookingDirection() == Direction.UP || context.getNearestLookingDirection() == Direction.DOWN ? context.getNearestLookingDirection() : context.getNearestLookingDirection().getOpposite())
-                .setValue(Z_ALIGN, zAlign);
+        return baseState.setValue(Z_ALIGN, zAlign)
+                .setValue(FACING, clickedFace == Direction.UP || clickedFace == Direction.DOWN ? clickedFace.getOpposite() : clickedFace)
+                .setValue(H_FACING, horizontalFacing);
     }
+
+
 }

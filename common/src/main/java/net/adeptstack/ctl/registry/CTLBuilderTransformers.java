@@ -9,10 +9,10 @@ import net.adeptstack.ctl.behaviours.movement.InteriorLightMovementBehaviour;
 import net.adeptstack.ctl.behaviours.interaction.InteriorLightMovingInteraction;
 import net.adeptstack.ctl.blocks.lights.HeadTailLightBlockBase;
 import net.adeptstack.ctl.blocks.lights.LightBlockBase;
-import net.adeptstack.ctl.blocks.lights.interiorLights.GridInteriorLightBlock;
-import net.adeptstack.ctl.blocks.lights.interiorLights.HorizontalInteriorLightBlock;
-import net.adeptstack.ctl.blocks.lights.interiorLights.PanelInteriorLightBlock;
-import net.adeptstack.ctl.blocks.lights.interiorLights.SlopedInteriorLightBlock;
+import net.adeptstack.ctl.blocks.lights.interiorLights.fulldirectional.HalfPanelInteriorLightBlock;
+import net.adeptstack.ctl.blocks.lights.interiorLights.horizontal.GridInteriorLightBlock;
+import net.adeptstack.ctl.blocks.lights.interiorLights.fulldirectional.PanelInteriorLightBlock;
+import net.adeptstack.ctl.blocks.lights.interiorLights.horizontal.SlopedInteriorLightBlock;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.material.MapColor;
@@ -81,16 +81,16 @@ public class CTLBuilderTransformers {
                 .register();
     }
 
-//    public static BlockEntry<HalfPanelInteriorLightBlock> HalfPanelInteriorLightBlock(String id, MapColor color) {
-//        return REGISTRATE
-//                .block(id, HalfPanelInteriorLightBlock::new)
-//                .initialProperties(() -> Blocks.IRON_BLOCK)
-//                .properties(p -> p.mapColor(color)
-//                        .sound(SoundType.GLASS)
-//                        .lightLevel(state -> state.getValue(LightBlockBase.LIT) ? 15 : 0))
-//                .transform(interiorLightBlock())
-//                .register();
-//    }
+    public static BlockEntry<HalfPanelInteriorLightBlock> HalfPanelInteriorLightBlock(String id, MapColor color) {
+        return REGISTRATE
+                .block(id, HalfPanelInteriorLightBlock::new)
+                .initialProperties(() -> Blocks.IRON_BLOCK)
+                .properties(p -> p.mapColor(color)
+                        .sound(SoundType.GLASS)
+                        .lightLevel(state -> state.getValue(LightBlockBase.LIT) ? 15 : 0))
+                .transform(interiorLightBlock())
+                .register();
+    }
 
     public static <B extends HeadTailLightBlockBase, P> NonNullUnaryOperator<BlockBuilder<B, P>> htLightBlock() {
         return b -> b.initialProperties(() -> Blocks.REDSTONE_LAMP) // for villager AI..
