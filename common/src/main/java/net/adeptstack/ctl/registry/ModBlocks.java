@@ -4,7 +4,7 @@ import com.tterrag.registrate.util.entry.BlockEntry;
 import net.adeptstack.ctl.blocks.lights.HeadTailLightBlockBase;
 import net.adeptstack.ctl.blocks.lights.LightBlockBase;
 import net.adeptstack.ctl.blocks.lights.interiorLights.GridInteriorLightBlock;
-import net.adeptstack.ctl.blocks.lights.interiorLights.HorizontalInteriorLightBlock;
+import net.adeptstack.ctl.blocks.lights.interiorLights.PanelInteriorLightBlock;
 import net.adeptstack.ctl.blocks.lights.interiorLights.SlopedInteriorLightBlock;
 import net.minecraft.world.level.material.MapColor;
 
@@ -21,6 +21,9 @@ public class ModBlocks {
 
     public static final BlockEntry<GridInteriorLightBlock> GRID_ILB =
             CTLBuilderTransformers.GridInteriorLightBlock("grid_ilb", MapColor.COLOR_GRAY);
+
+    public static final BlockEntry<PanelInteriorLightBlock> PANEL_ILB =
+            CTLBuilderTransformers.PanelInteriorLightBlock("panel_ilb", MapColor.COLOR_GRAY);
 
     public static void register() { }
 }
