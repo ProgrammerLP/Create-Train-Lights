@@ -19,17 +19,39 @@ public class HalfPanelInteriorLightBlock extends FullDirectionalInteriorLightBlo
     public static final EnumProperty<EBlockZPosition> Z_ALIGN = EnumProperty.create("z_align", EBlockZPosition.class);
     public static final DirectionProperty H_FACING = DirectionProperty.create("h_facing");
 
-    private static final VoxelShape SHAPE_CT_SN = Block.box(0, 0, 6.5, 16, 16, 9.5);
-    private static final VoxelShape SHAPE_CT_EW = Block.box(6.5, 0, 0, 9.5, 16, 16);
+    //Down
+    private static final VoxelShape SHAPE_D_C_SN = Block.box(0,0,4,16,3,12);
+    private static final VoxelShape SHAPE_D_C_EW = Block.box(4,0,0,12,3,16);
+    private static final VoxelShape SHAPE_D_N_SN = Block.box(0,0,0,16,3,8);
+    private static final VoxelShape SHAPE_D_N_EW = Block.box(0,0,0,8,3,16);
+    private static final VoxelShape SHAPE_D_P_SN = Block.box(0,0,8,16,3,16);
+    private static final VoxelShape SHAPE_D_P_EW = Block.box(8,0,0,16,3,16);
 
-    private static final VoxelShape SHAPE_S = Block.box(0, 0, 0, 16, 16, 3);
-    private static final VoxelShape SHAPE_E = Block.box(0, 0, 0, 3, 16, 16);
+    //Up
+    private static final VoxelShape SHAPE_U_C_SN = Block.box(0,13,4,16,16,12);
+    private static final VoxelShape SHAPE_U_C_EW = Block.box(4,13,0,12,16,16);
+    private static final VoxelShape SHAPE_U_N_SN = Block.box(0,13,0,16,16,8);
+    private static final VoxelShape SHAPE_U_N_EW = Block.box(0,13,0,8,16,16);
+    private static final VoxelShape SHAPE_U_P_SN = Block.box(0,13,8,16,16,16);
+    private static final VoxelShape SHAPE_U_P_EW = Block.box(8,13,0,16,16,16);
 
-    private static final VoxelShape SHAPE_N = Block.box(0, 0, 13, 16, 16, 16);
-    private static final VoxelShape SHAPE_W = Block.box(13, 0, 0, 16, 16, 16);
+    //Other
+    private static final VoxelShape SHAPE_N_C = Block.box(0,4,13,16,12,16);
+    private static final VoxelShape SHAPE_N_N = Block.box(0,0,13,16,8,16);
+    private static final VoxelShape SHAPE_N_P = Block.box(0,8,13,16,16,16);
 
-    private static final VoxelShape SHAPE_U = Block.box(0, 13, 0, 16, 16, 16);
-    private static final VoxelShape SHAPE_D = Block.box(0, 0, 0, 16, 3, 16);
+    private static final VoxelShape SHAPE_E_C = Block.box(0,4,0,3,12,16);
+    private static final VoxelShape SHAPE_E_N = Block.box(0,0,0,3,8,16);
+    private static final VoxelShape SHAPE_E_P = Block.box(0,8,0,3,16,16);
+
+    private static final VoxelShape SHAPE_S_C = Block.box(0,4,0,16,12,3);
+    private static final VoxelShape SHAPE_S_N = Block.box(0,0,0,16,8,3);
+    private static final VoxelShape SHAPE_S_P = Block.box(0,8,0,16,16,3);
+
+    private static final VoxelShape SHAPE_W_C = Block.box(13,4,0,16,12,16);
+    private static final VoxelShape SHAPE_W_N = Block.box(13,0,0,16,8,16);
+    private static final VoxelShape SHAPE_W_P = Block.box(13,8,0,16,16,16);
+
 
     public HalfPanelInteriorLightBlock(BlockBehaviour.Properties properties) {
         super(properties);
@@ -52,20 +74,37 @@ public class HalfPanelInteriorLightBlock extends FullDirectionalInteriorLightBlo
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         if (pState.getValue(FACING) == Direction.UP) {
-            return SHAPE_U;
+            if (pState.getValue(Z_ALIGN) == EBlockZPosition.POSITIVE) {
+                return pState.getValue(H_FACING) == Direction.NORTH || pState.getValue(H_FACING) == Direction.SOUTH ? SHAPE_U_P_SN : SHAPE_U_P_EW;
+            }
+            else if (pState.getValue(Z_ALIGN) == EBlockZPosition.CENTER) {
+                return pState.getValue(H_FACING) == Direction.NORTH || pState.getValue(H_FACING) == Direction.SOUTH ? SHAPE_U_C_SN : SHAPE_U_C_EW;
+            }
+            else if (pState.getValue(Z_ALIGN) == EBlockZPosition.NEGATIVE) {
+                return pState.getValue(H_FACING) == Direction.NORTH || pState.getValue(H_FACING) == Direction.SOUTH ? SHAPE_U_N_SN : SHAPE_U_N_EW;
+            }
         }
         else if (pState.getValue(FACING) == Direction.DOWN) {
-            return  SHAPE_D;
+            if (pState.getValue(Z_ALIGN) == EBlockZPosition.POSITIVE) {
+                return pState.getValue(H_FACING) == Direction.NORTH || pState.getValue(H_FACING) == Direction.SOUTH ? SHAPE_D_P_SN : SHAPE_D_P_EW;
+            }
+            else if (pState.getValue(Z_ALIGN) == EBlockZPosition.CENTER) {
+                return pState.getValue(H_FACING) == Direction.NORTH || pState.getValue(H_FACING) == Direction.SOUTH ? SHAPE_D_C_SN : SHAPE_D_C_EW;
+            }
+            else if (pState.getValue(Z_ALIGN) == EBlockZPosition.NEGATIVE) {
+                return pState.getValue(H_FACING) == Direction.NORTH || pState.getValue(H_FACING) == Direction.SOUTH ? SHAPE_D_N_SN : SHAPE_D_N_EW;
+            }
         }
         else if (pState.getValue(Z_ALIGN) == EBlockZPosition.POSITIVE) {
-            return pState.getValue(FACING) == Direction.NORTH ? SHAPE_N : pState.getValue(FACING) == Direction.WEST ? SHAPE_W : pState.getValue(FACING) == Direction.SOUTH ? SHAPE_S : SHAPE_E;
+            return pState.getValue(FACING) == Direction.NORTH ? SHAPE_N_P : pState.getValue(FACING) == Direction.WEST ? SHAPE_W_P : pState.getValue(FACING) == Direction.SOUTH ? SHAPE_S_P : SHAPE_E_P;
         }
         else if (pState.getValue(Z_ALIGN) == EBlockZPosition.NEGATIVE) {
-            return pState.getValue(FACING) == Direction.NORTH ? SHAPE_S : pState.getValue(FACING) == Direction.WEST ? SHAPE_E : pState.getValue(FACING) == Direction.SOUTH ? SHAPE_N : SHAPE_W;
+            return pState.getValue(FACING) == Direction.NORTH ? SHAPE_N_N : pState.getValue(FACING) == Direction.WEST ? SHAPE_W_N : pState.getValue(FACING) == Direction.SOUTH ? SHAPE_S_N : SHAPE_E_N;
         }
         else {
-            return pState.getValue(FACING) == Direction.NORTH || pState.getValue(FACING) == Direction.SOUTH ? SHAPE_CT_SN : SHAPE_CT_EW;
+            return pState.getValue(FACING) == Direction.NORTH ? SHAPE_N_C : pState.getValue(FACING) == Direction.WEST ? SHAPE_W_C : pState.getValue(FACING) == Direction.SOUTH ? SHAPE_S_C : SHAPE_E_C;
         }
+        return SHAPE_N_C;
     }
 
     public BlockState getDefaultPlacementState(BlockPlaceContext context) {
