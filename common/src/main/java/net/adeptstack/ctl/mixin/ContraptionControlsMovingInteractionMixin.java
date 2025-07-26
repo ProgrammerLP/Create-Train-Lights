@@ -36,7 +36,7 @@ public class ContraptionControlsMovingInteractionMixin {
                                                AbstractContraptionEntity contraptionEntity, CallbackInfoReturnable<Boolean> cir,
                                                Contraption contraption, MutablePair<StructureBlockInfo, MovementContext> actor,
                                                MovementContext ctx, ItemStack filter, boolean disable) {
-        if (contraptionEntity instanceof CarriageContraptionEntity cce && ctx.state.getBlock() instanceof LightBlockBase) {
+        if (contraptionEntity instanceof CarriageContraptionEntity cce && filter.getTag().contains("ctl:lightblock")) {
             Carriage carriage = cce.getCarriage();
             Train train = carriage.train;
             for (Carriage c : train.carriages) {
