@@ -10,6 +10,7 @@ import net.adeptstack.ctl.behaviours.interaction.InteriorLightMovingInteraction;
 import net.adeptstack.ctl.blocks.lights.HeadTailLightBlockBase;
 import net.adeptstack.ctl.blocks.lights.LightBlockBase;
 import net.adeptstack.ctl.blocks.lights.interiorLights.fulldirectional.HalfPanelInteriorLightBlock;
+import net.adeptstack.ctl.blocks.lights.interiorLights.fulldirectional.VerticalHalfPanelInteriorLightBlock;
 import net.adeptstack.ctl.blocks.lights.interiorLights.horizontal.GridInteriorLightBlock;
 import net.adeptstack.ctl.blocks.lights.interiorLights.fulldirectional.PanelInteriorLightBlock;
 import net.adeptstack.ctl.blocks.lights.interiorLights.horizontal.SlopedInteriorLightBlock;
@@ -84,6 +85,17 @@ public class CTLBuilderTransformers {
     public static BlockEntry<HalfPanelInteriorLightBlock> HalfPanelInteriorLightBlock(String id, MapColor color) {
         return REGISTRATE
                 .block(id, HalfPanelInteriorLightBlock::new)
+                .initialProperties(() -> Blocks.IRON_BLOCK)
+                .properties(p -> p.mapColor(color)
+                        .sound(SoundType.GLASS)
+                        .lightLevel(state -> state.getValue(LightBlockBase.LIT) ? 15 : 0))
+                .transform(interiorLightBlock())
+                .register();
+    }
+
+    public static BlockEntry<VerticalHalfPanelInteriorLightBlock> VerticalHalfPanelInteriorLightBlock(String id, MapColor color) {
+        return REGISTRATE
+                .block(id, VerticalHalfPanelInteriorLightBlock::new)
                 .initialProperties(() -> Blocks.IRON_BLOCK)
                 .properties(p -> p.mapColor(color)
                         .sound(SoundType.GLASS)

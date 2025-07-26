@@ -1,7 +1,12 @@
 {
   "replace": false,
   "values": [
-    "ctl:test_light",
-    "ctl:test_light_two"
+    "ctl:grid_ilb",
+    "ctl:sloped_ilb",
+    "ctl:panel_ilb",
+    "ctl:halfpanel_ilb",
+    "ctl:vertical_halfpanel_ilb",
+    "ctl:ilb_block",
+    "ctl:htlb_block"
   ]
 }

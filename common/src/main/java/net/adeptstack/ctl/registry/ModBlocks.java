@@ -4,6 +4,7 @@ import com.tterrag.registrate.util.entry.BlockEntry;
 import net.adeptstack.ctl.blocks.lights.HeadTailLightBlockBase;
 import net.adeptstack.ctl.blocks.lights.LightBlockBase;
 import net.adeptstack.ctl.blocks.lights.interiorLights.fulldirectional.HalfPanelInteriorLightBlock;
+import net.adeptstack.ctl.blocks.lights.interiorLights.fulldirectional.VerticalHalfPanelInteriorLightBlock;
 import net.adeptstack.ctl.blocks.lights.interiorLights.horizontal.GridInteriorLightBlock;
 import net.adeptstack.ctl.blocks.lights.interiorLights.fulldirectional.PanelInteriorLightBlock;
 import net.adeptstack.ctl.blocks.lights.interiorLights.horizontal.SlopedInteriorLightBlock;
@@ -28,6 +29,9 @@ public class ModBlocks {
 
     public static final BlockEntry<HalfPanelInteriorLightBlock> HALFPANEL_ILB =
             CTLBuilderTransformers.HalfPanelInteriorLightBlock("halfpanel_ilb", MapColor.COLOR_GRAY);
+
+    public static final BlockEntry<VerticalHalfPanelInteriorLightBlock> VERTICAL_HALFPANEL_ILB =
+            CTLBuilderTransformers.VerticalHalfPanelInteriorLightBlock("vertical_halfpanel_ilb", MapColor.COLOR_GRAY);
 
     public static void register() { }
 }

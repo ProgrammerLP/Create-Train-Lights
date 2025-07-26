@@ -113,27 +113,24 @@ public class HalfPanelInteriorLightBlock extends FullDirectionalInteriorLightBlo
         BlockPos blockPos = context.getClickedPos();
         BlockState baseState = this.defaultBlockState().setValue(FACING, clickedFace);
 
-        // Optional: horizontale Blickrichtung bei Decke/Boden
         if (clickedFace == Direction.UP || clickedFace == Direction.DOWN) {
             baseState = baseState.setValue(H_FACING, horizontalFacing);
         }
 
-        // z_align bestimmen
         double clickY = context.getClickLocation().y - blockPos.getY();
         double clickZ = context.getClickLocation().z - blockPos.getZ();
         double clickX = context.getClickLocation().x - blockPos.getX();
 
-        EBlockZPosition zAlign = EBlockZPosition.CENTER;
+        EBlockZPosition zAlign;
 
         if (clickedFace.getAxis().isVertical()) {
-            // Decke oder Boden: z_align über Blickrichtung
             if (horizontalFacing.getAxis() == Direction.Axis.Z) {
                 zAlign = clickZ < 0.33 ? EBlockZPosition.NEGATIVE : (clickZ > 0.66 ? EBlockZPosition.POSITIVE : EBlockZPosition.CENTER);
             } else {
                 zAlign = clickX < 0.33 ? EBlockZPosition.NEGATIVE : (clickX > 0.66 ? EBlockZPosition.POSITIVE : EBlockZPosition.CENTER);
             }
-        } else {
-            // Wandplatzierung: z_align über y-Achse
+        }
+        else {
             zAlign = clickY < 0.33 ? EBlockZPosition.NEGATIVE : (clickY > 0.66 ? EBlockZPosition.POSITIVE : EBlockZPosition.CENTER);
         }
 
@@ -141,6 +138,4 @@ public class HalfPanelInteriorLightBlock extends FullDirectionalInteriorLightBlo
                 .setValue(FACING, clickedFace == Direction.UP || clickedFace == Direction.DOWN ? clickedFace.getOpposite() : clickedFace)
                 .setValue(H_FACING, horizontalFacing);
     }
-
-
 }
