@@ -1,13 +1,13 @@
 {
   "variants": {
     "lit=false": {
-      "model": "ctl:block/test/off"
+      "model": "ctl:block/baseblock/off"
     },
     "lit=true,lightmode=0": {
-      "model": "ctl:block/test/zero"
+      "model": "ctl:block/baseblock/zero"
     },
     "lit=true,lightmode=1": {
-      "model": "ctl:block/test/one"
+      "model": "ctl:block/baseblock/one"
     }
   }
 }

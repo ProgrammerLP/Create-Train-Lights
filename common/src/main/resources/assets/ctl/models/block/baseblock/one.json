@@ -2,6 +2,6 @@
   "parent": "block/cube_all",
 
   "textures": {
-    "all": "ctl:block/test/on"
+    "all": "ctl:block/baseblock/one"
   }
 }

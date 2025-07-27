@@ -1,10 +1,10 @@
 {
   "variants": {
     "lit=false": {
-      "model": "ctl:block/test/off"
+      "model": "ctl:block/baseblock/off"
     },
     "lit=true": {
-      "model": "ctl:block/test/on"
+      "model": "ctl:block/baseblock/on"
     }
   }
 }
