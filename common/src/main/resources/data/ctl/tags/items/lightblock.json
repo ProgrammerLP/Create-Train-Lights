@@ -6,7 +6,7 @@
     "ctl:panel_ilb",
     "ctl:halfpanel_ilb",
     "ctl:vertical_halfpanel_ilb",
-    "ctl:quarter_ilb",
+    "ctl:quarter_ilb_ilb",
     "ctl:ilb_block",
     "ctl:htlb_block"
   ]
