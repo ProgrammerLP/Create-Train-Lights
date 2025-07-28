@@ -77,6 +77,7 @@ public class VerticalHalfPanelInteriorLightBlock extends HorizontalInteriorLight
 
         return stateForPlacement
                 .setValue(FACING, direction)
+                .setValue(LIT, false)
                 .setValue(Z_ALIGN, zAlign);
     }
 

@@ -7,6 +7,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -17,7 +18,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class HalfPanelInteriorLightBlock extends FullDirectionalInteriorLightBlock {
     public static final EnumProperty<EBlockZPosition> Z_ALIGN = EnumProperty.create("z_align", EBlockZPosition.class);
-    public static final DirectionProperty H_FACING = DirectionProperty.create("h_facing");
+    public static final DirectionProperty H_FACING = DirectionProperty.create("h_facing", Direction.Plane.HORIZONTAL);
 
     //Down
     private static final VoxelShape SHAPE_D_C_SN = Block.box(0,0,4,16,3,12);
@@ -136,6 +137,7 @@ public class HalfPanelInteriorLightBlock extends FullDirectionalInteriorLightBlo
 
         return baseState.setValue(Z_ALIGN, zAlign)
                 .setValue(FACING, clickedFace == Direction.UP || clickedFace == Direction.DOWN ? clickedFace.getOpposite() : clickedFace)
+                .setValue(LIT, false)
                 .setValue(H_FACING, horizontalFacing);
     }
 }

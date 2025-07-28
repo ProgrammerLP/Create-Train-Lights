@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 
 public class QuarterInteriorLightBlock extends FullDirectionalInteriorLightBlock {
 
@@ -165,18 +166,25 @@ public class QuarterInteriorLightBlock extends FullDirectionalInteriorLightBlock
                 break;
         }
 
+        EBlockPlacePosition placePosition = getEBlockPlacePosition(u, v);
+
+        return this.defaultBlockState()
+                .setValue(FACING, finalFacing)
+                .setValue(LIT, false)
+                .setValue(IBP, placePosition);
+    }
+
+    private static @NotNull EBlockPlacePosition getEBlockPlacePosition(double u, double v) {
         EBlockPlacePosition placePosition = EBlockPlacePosition.CENTER;
-        if (true) {
-            if (u > 0.66) {
-                if (v > 0.66) placePosition = EBlockPlacePosition.BOTTOM_RIGHT;
-                else if (v < 0.33) placePosition = EBlockPlacePosition.TOP_RIGHT;
-                else placePosition = EBlockPlacePosition.CENTER;
-            }
-            else if (u < 0.33) {
-                if (v > 0.66) placePosition = EBlockPlacePosition.BOTTOM_LEFT;
-                else if (v < 0.33) placePosition = EBlockPlacePosition.TOP_LEFT;
-                else placePosition = EBlockPlacePosition.CENTER;
-            }
+        if (u > 0.66) {
+            if (v > 0.66) placePosition = EBlockPlacePosition.BOTTOM_RIGHT;
+            else if (v < 0.33) placePosition = EBlockPlacePosition.TOP_RIGHT;
+            else placePosition = EBlockPlacePosition.CENTER;
+        }
+        else if (u < 0.33) {
+            if (v > 0.66) placePosition = EBlockPlacePosition.BOTTOM_LEFT;
+            else if (v < 0.33) placePosition = EBlockPlacePosition.TOP_LEFT;
+            else placePosition = EBlockPlacePosition.CENTER;
         }
         else {
             if (v > 0.66) {
@@ -190,9 +198,6 @@ public class QuarterInteriorLightBlock extends FullDirectionalInteriorLightBlock
                 else placePosition = EBlockPlacePosition.CENTER;
             }
         }
-
-        return this.defaultBlockState()
-                .setValue(FACING, finalFacing)
-                .setValue(IBP, placePosition);
+        return placePosition;
     }
 }
