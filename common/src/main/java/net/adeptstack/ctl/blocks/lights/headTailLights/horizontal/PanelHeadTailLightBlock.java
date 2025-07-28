@@ -1,7 +1,7 @@
-package net.adeptstack.ctl.blocks.lights.interiorLights.fulldirectional;
+package net.adeptstack.ctl.blocks.lights.headTailLights.horizontal;
 
 import net.adeptstack.ctl.EBlockZPosition;
-import net.adeptstack.ctl.blocks.lights.interiorLights.FullDirectionalInteriorLightBlock;
+import net.adeptstack.ctl.blocks.lights.headTailLights.HorizontalHeadTailLightBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -14,7 +14,7 @@ import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class PanelInteriorLightBlock extends FullDirectionalInteriorLightBlock {
+public class PanelHeadTailLightBlock extends HorizontalHeadTailLightBlock {
     public static final EnumProperty<EBlockZPosition> Z_ALIGN = EnumProperty.create("z_align", EBlockZPosition.class);
 
     private static final VoxelShape SHAPE_CT_SN = Block.box(0, 0, 6.5, 16, 16, 9.5);
@@ -26,10 +26,7 @@ public class PanelInteriorLightBlock extends FullDirectionalInteriorLightBlock {
     private static final VoxelShape SHAPE_N = Block.box(0, 0, 13, 16, 16, 16);
     private static final VoxelShape SHAPE_W = Block.box(13, 0, 0, 16, 16, 16);
 
-    private static final VoxelShape SHAPE_U = Block.box(0, 13, 0, 16, 16, 16);
-    private static final VoxelShape SHAPE_D = Block.box(0, 0, 0, 16, 3, 16);
-
-    public PanelInteriorLightBlock(BlockBehaviour.Properties properties) {
+    public PanelHeadTailLightBlock(BlockBehaviour.Properties properties) {
         super(properties);
 
         this.registerDefaultState(this.stateDefinition.any()
@@ -48,13 +45,7 @@ public class PanelInteriorLightBlock extends FullDirectionalInteriorLightBlock {
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        if (pState.getValue(FACING) == Direction.UP) {
-            return SHAPE_U;
-        }
-        else if (pState.getValue(FACING) == Direction.DOWN) {
-            return  SHAPE_D;
-        }
-        else if (pState.getValue(Z_ALIGN) == EBlockZPosition.POSITIVE) {
+        if (pState.getValue(Z_ALIGN) == EBlockZPosition.POSITIVE) {
             return pState.getValue(FACING) == Direction.NORTH ? SHAPE_N : pState.getValue(FACING) == Direction.WEST ? SHAPE_W : pState.getValue(FACING) == Direction.SOUTH ? SHAPE_S : SHAPE_E;
         }
         else if (pState.getValue(Z_ALIGN) == EBlockZPosition.NEGATIVE) {
@@ -88,7 +79,7 @@ public class PanelInteriorLightBlock extends FullDirectionalInteriorLightBlock {
         }
 
         return stateForPlacement
-                .setValue(FACING, context.getNearestLookingDirection() == Direction.UP || context.getNearestLookingDirection() == Direction.DOWN ? context.getNearestLookingDirection() : context.getNearestLookingDirection().getOpposite())
+                .setValue(FACING, context.getHorizontalDirection().getOpposite())
                 .setValue(LIT, false)
                 .setValue(Z_ALIGN, zAlign);
     }
