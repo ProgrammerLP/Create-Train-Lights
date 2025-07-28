@@ -1,0 +1,51 @@
+{
+  "variants": {
+    "facing=north,z_align=center,lit=false": { "model": "ctl:block/htlb/halfpanel_htlb/halfpanel_htlb_h_1", "y": 90, "x": 90 },
+    "facing=north,z_align=center,lit=true,lightmode=0": { "model": "ctl:block/htlb/halfpanel_htlb/halfpanel_htlb_h_1_on", "y": 90, "x": 90 },
+    "facing=north,z_align=center,lit=true,lightmode=1": { "model": "ctl:block/htlb/halfpanel_htlb/halfpanel_htlb_h_1_back", "y": 90, "x": 90 },
+
+    "facing=north,z_align=positive,lit=false": { "model": "ctl:block/htlb/halfpanel_htlb/halfpanel_htlb_h_0", "y": 90, "x": 270 },
+    "facing=north,z_align=positive,lit=true,lightmode=0": { "model": "ctl:block/htlb/halfpanel_htlb/halfpanel_htlb_h_0_on", "y": 90, "x": 270 },
+    "facing=north,z_align=positive,lit=true,lightmode=1": { "model": "ctl:block/htlb/halfpanel_htlb/halfpanel_htlb_h_0_back", "y": 90, "x": 270 },
+
+    "facing=north,z_align=negative,lit=false": { "model": "ctl:block/htlb/halfpanel_htlb/halfpanel_htlb_h_0", "y": 90, "x": 90 },
+    "facing=north,z_align=negative,lit=true,lightmode=0": { "model": "ctl:block/htlb/halfpanel_htlb/halfpanel_htlb_h_0_on", "y": 90, "x": 90 },
+    "facing=north,z_align=negative,lit=true,lightmode=1": { "model": "ctl:block/htlb/halfpanel_htlb/halfpanel_htlb_h_0_back", "y": 90, "x": 90 },
+
+    "facing=south,z_align=center,lit=false": { "model": "ctl:block/htlb/halfpanel_htlb/halfpanel_htlb_h_1", "y": 270, "x": 270 },
+    "facing=south,z_align=center,lit=true,lightmode=0": { "model": "ctl:block/htlb/halfpanel_htlb/halfpanel_htlb_h_1_on", "y": 270, "x": 270 },
+    "facing=south,z_align=center,lit=true,lightmode=1": { "model": "ctl:block/htlb/halfpanel_htlb/halfpanel_htlb_h_1_back", "y": 270, "x": 270 },
+
+    "facing=south,z_align=positive,lit=false": { "model": "ctl:block/htlb/halfpanel_htlb/halfpanel_htlb_h_0", "y": 270, "x": 90 },
+    "facing=south,z_align=positive,lit=true,lightmode=0": { "model": "ctl:block/htlb/halfpanel_htlb/halfpanel_htlb_h_0_on", "y": 270, "x": 90 },
+    "facing=south,z_align=positive,lit=true,lightmode=1": { "model": "ctl:block/htlb/halfpanel_htlb/halfpanel_htlb_h_0_back", "y": 270, "x": 90 },
+
+    "facing=south,z_align=negative,lit=false": { "model": "ctl:block/htlb/halfpanel_htlb/halfpanel_htlb_h_0", "y": 270, "x": 270 },
+    "facing=south,z_align=negative,lit=true,lightmode=0": { "model": "ctl:block/htlb/halfpanel_htlb/halfpanel_htlb_h_0_on", "y": 270, "x": 270 },
+    "facing=south,z_align=negative,lit=true,lightmode=1": { "model": "ctl:block/htlb/halfpanel_htlb/halfpanel_htlb_h_0_back", "y": 270, "x": 270 },
+
+    "facing=west,z_align=center,lit=false": { "model": "ctl:block/htlb/halfpanel_htlb/halfpanel_htlb_h_1", "y": 0, "x": 270 },
+    "facing=west,z_align=center,lit=true,lightmode=0": { "model": "ctl:block/htlb/halfpanel_htlb/halfpanel_htlb_h_1_on", "y": 0, "x": 270 },
+    "facing=west,z_align=center,lit=true,lightmode=1": { "model": "ctl:block/htlb/halfpanel_htlb/halfpanel_htlb_h_1_back", "y": 0, "x": 270 },
+
+    "facing=west,z_align=positive,lit=false": { "model": "ctl:block/htlb/halfpanel_htlb/halfpanel_htlb_h_0", "y": 0, "x": 90 },
+    "facing=west,z_align=positive,lit=true,lightmode=0": { "model": "ctl:block/htlb/halfpanel_htlb/halfpanel_htlb_h_0_on", "y": 0, "x": 90 },
+    "facing=west,z_align=positive,lit=true,lightmode=1": { "model": "ctl:block/htlb/halfpanel_htlb/halfpanel_htlb_h_0_back", "y": 0, "x": 90 },
+
+    "facing=west,z_align=negative,lit=false": { "model": "ctl:block/htlb/halfpanel_htlb/halfpanel_htlb_h_0", "y": 0, "x": 270 },
+    "facing=west,z_align=negative,lit=true,lightmode=0": { "model": "ctl:block/htlb/halfpanel_htlb/halfpanel_htlb_h_0_on", "y": 0, "x": 270 },
+    "facing=west,z_align=negative,lit=true,lightmode=1": { "model": "ctl:block/htlb/halfpanel_htlb/halfpanel_htlb_h_0_back", "y": 0, "x": 270 },
+
+    "facing=east,z_align=center,lit=false": { "model": "ctl:block/htlb/halfpanel_htlb/halfpanel_htlb_h_1", "y": 180, "x": 90 },
+    "facing=east,z_align=center,lit=true,lightmode=0": { "model": "ctl:block/htlb/halfpanel_htlb/halfpanel_htlb_h_1_on", "y": 180, "x": 90 },
+    "facing=east,z_align=center,lit=true,lightmode=1": { "model": "ctl:block/htlb/halfpanel_htlb/halfpanel_htlb_h_1_back", "y": 180, "x": 90 },
+
+    "facing=east,z_align=positive,lit=false": { "model": "ctl:block/htlb/halfpanel_htlb/halfpanel_htlb_h_0", "y": 180, "x": 270 },
+    "facing=east,z_align=positive,lit=true,lightmode=0": { "model": "ctl:block/htlb/halfpanel_htlb/halfpanel_htlb_h_0_on", "y": 180, "x": 270 },
+    "facing=east,z_align=positive,lit=true,lightmode=1": { "model": "ctl:block/htlb/halfpanel_htlb/halfpanel_htlb_h_0_back", "y": 180, "x": 270 },
+
+    "facing=east,z_align=negative,lit=false": { "model": "ctl:block/htlb/halfpanel_htlb/halfpanel_htlb_h_0", "y": 180, "x": 90 },
+    "facing=east,z_align=negative,lit=true,lightmode=0": { "model": "ctl:block/htlb/halfpanel_htlb/halfpanel_htlb_h_0_on", "y": 180, "x": 90 },
+    "facing=east,z_align=negative,lit=true,lightmode=1": { "model": "ctl:block/htlb/halfpanel_htlb/halfpanel_htlb_h_0_back", "y": 180, "x": 90 }
+  }
+}
