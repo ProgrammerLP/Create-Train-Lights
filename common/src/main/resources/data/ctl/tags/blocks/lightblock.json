@@ -8,6 +8,10 @@
     "ctl:vertical_halfpanel_ilb",
     "ctl:quarter_ilb",
     "ctl:ilb_block",
-    "ctl:htlb_block"
+    "ctl:htlb_block",
+    "ctl:panel_htlb",
+    "ctl:halfpanel_htlb",
+    "ctl:vertical_halfpanel_htlb",
+    "ctl:quarter_htlb"
   ]
 }

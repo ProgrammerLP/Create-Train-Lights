@@ -38,9 +38,7 @@ public class ContraptionControlsMovingInteractionMixin {
                                                Contraption contraption, MutablePair<StructureBlockInfo, MovementContext> actor,
                                                MovementContext ctx, ItemStack filter, boolean disable) {
         if (contraptionEntity instanceof CarriageContraptionEntity cce) {
-            System.out.println("HALLO");
-            if (ctx.state.getBlock() instanceof HeadTailLightBlockBase) {
-                System.out.println("TEST");
+            if (filter.is(ItemTags.DOORS)) {
                 Carriage carriage = cce.getCarriage();
                 Train train = carriage.train;
                 for (Carriage c : train.carriages) {
