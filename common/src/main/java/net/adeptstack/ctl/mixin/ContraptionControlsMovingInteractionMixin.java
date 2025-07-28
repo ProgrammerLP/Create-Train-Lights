@@ -9,6 +9,7 @@ import com.simibubi.create.content.contraptions.behaviour.MovementContext;
 import com.simibubi.create.content.trains.entity.Carriage;
 import com.simibubi.create.content.trains.entity.CarriageContraptionEntity;
 import com.simibubi.create.content.trains.entity.Train;
+import net.adeptstack.ctl.blocks.lights.HeadTailLightBlockBase;
 import net.adeptstack.ctl.blocks.lights.LightBlockBase;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.ItemTags;
@@ -36,17 +37,21 @@ public class ContraptionControlsMovingInteractionMixin {
                                                AbstractContraptionEntity contraptionEntity, CallbackInfoReturnable<Boolean> cir,
                                                Contraption contraption, MutablePair<StructureBlockInfo, MovementContext> actor,
                                                MovementContext ctx, ItemStack filter, boolean disable) {
-        if (contraptionEntity instanceof CarriageContraptionEntity cce && filter.getTag().contains("ctl:lightblock")) {
-            Carriage carriage = cce.getCarriage();
-            Train train = carriage.train;
-            for (Carriage c : train.carriages) {
-                Contraption cpt = c.anyAvailableEntity().getContraption();
+        if (contraptionEntity instanceof CarriageContraptionEntity cce) {
+            System.out.println("HALLO");
+            if (ctx.state.getBlock() instanceof HeadTailLightBlockBase) {
+                System.out.println("TEST");
+                Carriage carriage = cce.getCarriage();
+                Train train = carriage.train;
+                for (Carriage c : train.carriages) {
+                    Contraption cpt = c.anyAvailableEntity().getContraption();
 
-                cpt.setActorsActive(filter, !disable);
-                ContraptionControlsBlockEntity.sendStatus(player, filter, !disable);
-                send(cpt.entity, filter, disable);
+                    cpt.setActorsActive(filter, !disable);
+                    ContraptionControlsBlockEntity.sendStatus(player, filter, !disable);
+                    send(cpt.entity, filter, disable);
 
-                AllSoundEvents.CONTROLLER_CLICK.play(player.level(), null, BlockPos.containing(contraptionEntity.toGlobalVector(Vec3.atCenterOf(localPos), 1)), 1, disable ? 0.8f : 1.5f);
+                    AllSoundEvents.CONTROLLER_CLICK.play(player.level(), null, BlockPos.containing(contraptionEntity.toGlobalVector(Vec3.atCenterOf(localPos), 1)), 1, disable ? 0.8f : 1.5f);
+                }
             }
         }
     }

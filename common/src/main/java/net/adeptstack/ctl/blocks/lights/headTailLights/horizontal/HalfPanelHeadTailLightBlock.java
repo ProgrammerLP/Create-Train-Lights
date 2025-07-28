@@ -1,6 +1,6 @@
 package net.adeptstack.ctl.blocks.lights.headTailLights.horizontal;
 
-import net.adeptstack.ctl.EBlockZPosition;
+import net.adeptstack.ctl.enums.EBlockZPosition;
 import net.adeptstack.ctl.blocks.lights.headTailLights.HorizontalHeadTailLightBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -10,7 +10,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;

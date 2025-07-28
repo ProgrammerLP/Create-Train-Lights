@@ -1,6 +1,6 @@
 package net.adeptstack.ctl.blocks.lights.headTailLights.horizontal;
 
-import net.adeptstack.ctl.EBlockPlacePosition;
+import net.adeptstack.ctl.enums.EBlockPlacePosition;
 import net.adeptstack.ctl.blocks.lights.headTailLights.HorizontalHeadTailLightBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

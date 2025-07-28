@@ -1,7 +1,6 @@
 package net.adeptstack.ctl.blocks.lights.interiorLights.fulldirectional;
 
-import net.adeptstack.ctl.EBlockPlacePosition;
-import net.adeptstack.ctl.EBlockZPosition;
+import net.adeptstack.ctl.enums.EBlockPlacePosition;
 import net.adeptstack.ctl.blocks.lights.interiorLights.FullDirectionalInteriorLightBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
