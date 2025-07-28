@@ -9,6 +9,10 @@ import net.adeptstack.ctl.behaviours.movement.InteriorLightMovementBehaviour;
 import net.adeptstack.ctl.behaviours.interaction.InteriorLightMovingInteraction;
 import net.adeptstack.ctl.blocks.lights.HeadTailLightBlockBase;
 import net.adeptstack.ctl.blocks.lights.LightBlockBase;
+import net.adeptstack.ctl.blocks.lights.headTailLights.horizontal.HalfPanelHeadTailLightBlock;
+import net.adeptstack.ctl.blocks.lights.headTailLights.horizontal.PanelHeadTailLightBlock;
+import net.adeptstack.ctl.blocks.lights.headTailLights.horizontal.QuarterHeadTailLightBlock;
+import net.adeptstack.ctl.blocks.lights.headTailLights.horizontal.VerticalHalfPanelHeadTailLightBlock;
 import net.adeptstack.ctl.blocks.lights.interiorLights.fulldirectional.HalfPanelInteriorLightBlock;
 import net.adeptstack.ctl.blocks.lights.interiorLights.fulldirectional.QuarterInteriorLightBlock;
 import net.adeptstack.ctl.blocks.lights.interiorLights.horizontal.VerticalHalfPanelInteriorLightBlock;
@@ -26,18 +30,6 @@ import static net.adeptstack.ctl.Main.REGISTRATE;
 
 @SuppressWarnings({"unused","removal"})
 public class CTLBuilderTransformers {
-
-    public static <B extends LightBlockBase, P> NonNullUnaryOperator<BlockBuilder<B, P>> interiorLightBlock() {
-        return b -> b.initialProperties(() -> Blocks.REDSTONE_LAMP) // for villager AI..
-                .properties(p -> p.strength(3.0F, 6.0F))
-                .addLayer(() -> RenderType::cutout)
-                .transform(pickaxeOnly())
-                .onRegister(interactionBehaviour(new InteriorLightMovingInteraction()))
-                .onRegister(movementBehaviour(new InteriorLightMovementBehaviour()))
-                .item()
-                .tab(ModTabs.CTL_TAB.getKey())
-                .build();
-    }
 
     public static BlockEntry<LightBlockBase> InteriorLightBlock(String id, MapColor color) {
         return REGISTRATE
@@ -116,6 +108,73 @@ public class CTLBuilderTransformers {
                 .register();
     }
 
+    public static BlockEntry<HeadTailLightBlockBase> HeadTailLightBlock(String id, MapColor color) {
+        return REGISTRATE
+                .block(id, HeadTailLightBlockBase::new)
+                .initialProperties(() -> Blocks.IRON_BLOCK)
+                .properties(p -> p.mapColor(color)
+                        .sound(SoundType.GLASS)
+                        .lightLevel(state -> state.getValue(LightBlockBase.LIT) ? state.getValue(HeadTailLightBlockBase.LIGHT_MODE) == 0 ? 15 : 10 : 0))
+                .transform(htLightBlock())
+                .register();
+    }
+
+    public static BlockEntry<PanelHeadTailLightBlock> PanelHeadTailLightBlock(String id, MapColor color) {
+        return REGISTRATE
+                .block(id, PanelHeadTailLightBlock::new)
+                .initialProperties(() -> Blocks.IRON_BLOCK)
+                .properties(p -> p.mapColor(color)
+                        .sound(SoundType.GLASS)
+                        .lightLevel(state -> state.getValue(LightBlockBase.LIT) ? state.getValue(PanelHeadTailLightBlock.LIGHT_MODE) == 0 ? 15 : 10 : 0))
+                .transform(htLightBlock())
+                .register();
+    }
+
+    public static BlockEntry<HalfPanelHeadTailLightBlock> HalfPanelHeadTailLightBlock(String id, MapColor color) {
+        return REGISTRATE
+                .block(id, HalfPanelHeadTailLightBlock::new)
+                .initialProperties(() -> Blocks.IRON_BLOCK)
+                .properties(p -> p.mapColor(color)
+                        .sound(SoundType.GLASS)
+                        .lightLevel(state -> state.getValue(LightBlockBase.LIT) ? state.getValue(HalfPanelHeadTailLightBlock.LIGHT_MODE) == 0 ? 15 : 10 : 0))
+                .transform(htLightBlock())
+                .register();
+    }
+
+    public static BlockEntry<VerticalHalfPanelHeadTailLightBlock> VerticalHalfPanelHeadTailLightBlock(String id, MapColor color) {
+        return REGISTRATE
+                .block(id, VerticalHalfPanelHeadTailLightBlock::new)
+                .initialProperties(() -> Blocks.IRON_BLOCK)
+                .properties(p -> p.mapColor(color)
+                        .sound(SoundType.GLASS)
+                        .lightLevel(state -> state.getValue(LightBlockBase.LIT) ? state.getValue(VerticalHalfPanelHeadTailLightBlock.LIGHT_MODE) == 0 ? 15 : 10 : 0))
+                .transform(htLightBlock())
+                .register();
+    }
+
+    public static BlockEntry<QuarterHeadTailLightBlock> QuarterHeadTailLightBlock(String id, MapColor color) {
+        return REGISTRATE
+                .block(id, QuarterHeadTailLightBlock::new)
+                .initialProperties(() -> Blocks.IRON_BLOCK)
+                .properties(p -> p.mapColor(color)
+                        .sound(SoundType.GLASS)
+                        .lightLevel(state -> state.getValue(LightBlockBase.LIT) ? state.getValue(QuarterHeadTailLightBlock.LIGHT_MODE) == 0 ? 15 : 10 : 0))
+                .transform(htLightBlock())
+                .register();
+    }
+
+    public static <B extends LightBlockBase, P> NonNullUnaryOperator<BlockBuilder<B, P>> interiorLightBlock() {
+        return b -> b.initialProperties(() -> Blocks.REDSTONE_LAMP) // for villager AI..
+                .properties(p -> p.strength(3.0F, 6.0F))
+                .addLayer(() -> RenderType::cutout)
+                .transform(pickaxeOnly())
+                .onRegister(interactionBehaviour(new InteriorLightMovingInteraction()))
+                .onRegister(movementBehaviour(new InteriorLightMovementBehaviour()))
+                .item()
+                .tab(ModTabs.CTL_TAB.getKey())
+                .build();
+    }
+
     public static <B extends HeadTailLightBlockBase, P> NonNullUnaryOperator<BlockBuilder<B, P>> htLightBlock() {
         return b -> b.initialProperties(() -> Blocks.REDSTONE_LAMP) // for villager AI..
                 .properties(p -> p.strength(3.0F, 6.0F))
@@ -127,16 +186,4 @@ public class CTLBuilderTransformers {
                 .tab(ModTabs.CTL_TAB.getKey())
                 .build();
     }
-
-    public static BlockEntry<HeadTailLightBlockBase> HeadTailLightBlock(String id, MapColor color) {
-        return REGISTRATE
-                .block(id, HeadTailLightBlockBase::new)
-                .initialProperties(() -> Blocks.IRON_BLOCK)
-                .properties(p -> p.mapColor(color)
-                        .sound(SoundType.AMETHYST_CLUSTER)
-                        .lightLevel(state -> state.getValue(LightBlockBase.LIT) ? state.getValue(HeadTailLightBlockBase.LIGHT_MODE) == 0 ? 15 : 10 : 0))
-                .transform(htLightBlock())
-                .register();
-    }
-
 }

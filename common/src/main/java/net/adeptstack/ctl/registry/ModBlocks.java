@@ -3,6 +3,10 @@ package net.adeptstack.ctl.registry;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import net.adeptstack.ctl.blocks.lights.HeadTailLightBlockBase;
 import net.adeptstack.ctl.blocks.lights.LightBlockBase;
+import net.adeptstack.ctl.blocks.lights.headTailLights.horizontal.HalfPanelHeadTailLightBlock;
+import net.adeptstack.ctl.blocks.lights.headTailLights.horizontal.PanelHeadTailLightBlock;
+import net.adeptstack.ctl.blocks.lights.headTailLights.horizontal.QuarterHeadTailLightBlock;
+import net.adeptstack.ctl.blocks.lights.headTailLights.horizontal.VerticalHalfPanelHeadTailLightBlock;
 import net.adeptstack.ctl.blocks.lights.interiorLights.fulldirectional.HalfPanelInteriorLightBlock;
 import net.adeptstack.ctl.blocks.lights.interiorLights.fulldirectional.QuarterInteriorLightBlock;
 import net.adeptstack.ctl.blocks.lights.interiorLights.horizontal.VerticalHalfPanelInteriorLightBlock;
@@ -15,9 +19,6 @@ public class ModBlocks {
 
     public static final BlockEntry<LightBlockBase> ILB_BLOCK =
             CTLBuilderTransformers.InteriorLightBlock("ilb_block", MapColor.COLOR_BLACK);
-
-    public static final BlockEntry<HeadTailLightBlockBase> HTLB_BLOCK =
-            CTLBuilderTransformers.HeadTailLightBlock("htlb_block", MapColor.COLOR_BLACK);
 
     public static final BlockEntry<SlopedInteriorLightBlock> SLOPED_ILB =
             CTLBuilderTransformers.SlopedInteriorLightBlock("sloped_ilb", MapColor.COLOR_GRAY);
@@ -36,6 +37,21 @@ public class ModBlocks {
 
     public static final BlockEntry<QuarterInteriorLightBlock> QUARTER_ILB =
             CTLBuilderTransformers.QuarterInteriorLightBlock("quarter_ilb", MapColor.COLOR_GRAY);
+
+    public static final BlockEntry<HeadTailLightBlockBase> HTLB_BLOCK =
+            CTLBuilderTransformers.HeadTailLightBlock("htlb_block", MapColor.COLOR_BLACK);
+
+    public static final BlockEntry<PanelHeadTailLightBlock> PANEL_HTLB =
+            CTLBuilderTransformers.PanelHeadTailLightBlock("panel_htlb", MapColor.COLOR_GRAY);
+
+    public static final BlockEntry<HalfPanelHeadTailLightBlock> HALFPANEL_HTLB =
+            CTLBuilderTransformers.HalfPanelHeadTailLightBlock("halfpanel_htlb", MapColor.COLOR_GRAY);
+
+    public static final BlockEntry<VerticalHalfPanelHeadTailLightBlock> VERTICAL_HALFPANEL_HTLB =
+            CTLBuilderTransformers.VerticalHalfPanelHeadTailLightBlock("vertical_halfpanel_htlb", MapColor.COLOR_GRAY);
+
+    public static final BlockEntry<QuarterHeadTailLightBlock> QUARTER_HTLB =
+            CTLBuilderTransformers.QuarterHeadTailLightBlock("quarter_htlb", MapColor.COLOR_GRAY);
 
     public static void register() { }
 }

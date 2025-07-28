@@ -1,0 +1,24 @@
+{
+	"format_version": "1.21.6",
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "ctl:block/quarter_ilb/texture_quarter_ilb_1",
+		"particle": "ctl:block/quarter_ilb/texture_quarter_ilb_1"
+	},
+	"elements": [
+		{
+			"from": [13, 4, 4],
+			"to": [16, 12, 12],
+			"rotation": {"angle": 0, "axis": "x", "origin": [13, 12, 4]},
+			"rotated": [0, 0, 0],
+			"faces": {
+				"north": {"uv": [8, 0, 16, 3], "rotation": 270, "texture": "#0"},
+				"east": {"uv": [8, 8, 0, 0], "rotation": 90, "texture": "#0"},
+				"south": {"uv": [8, 6, 16, 9], "rotation": 90, "texture": "#0"},
+				"west": {"uv": [8, 8, 0, 16], "rotation": 90, "texture": "#0"},
+				"up": {"uv": [8, 9, 16, 12], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [8, 3, 16, 6], "rotation": 90, "texture": "#0"}
+			}
+		}
+	]
+}
