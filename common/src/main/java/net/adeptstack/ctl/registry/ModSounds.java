@@ -13,6 +13,6 @@ public class ModSounds {
     public static final DeferredRegister<SoundEvent> SOUND_EVENTS = DeferredRegister.create(MOD_ID, Registries.SOUND_EVENT);
 
     private static RegistrySupplier<SoundEvent> registerSoundEvents(String name) {
-        return SOUND_EVENTS.register(new ResourceLocation(MOD_ID, name), () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(MOD_ID, name)));
+        return SOUND_EVENTS.register(ResourceLocation.fromNamespaceAndPath(MOD_ID, name), () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(MOD_ID, name)));
     }
 }

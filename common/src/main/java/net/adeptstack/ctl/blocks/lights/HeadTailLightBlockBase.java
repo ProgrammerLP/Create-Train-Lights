@@ -31,7 +31,7 @@ public class HeadTailLightBlockBase extends LightBlockBase {
     }
 
     @Override
-    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
         if (!player.isShiftKeyDown()) {
             level.setBlockAndUpdate(pos, state.cycle(LIT));
             level.playSound(player, pos, SoundEvents.COMPARATOR_CLICK, SoundSource.BLOCKS, 1F, 0.5f);

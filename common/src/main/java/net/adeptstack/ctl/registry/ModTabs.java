@@ -15,7 +15,7 @@ public class ModTabs {
 
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(MOD_ID, Registries.CREATIVE_MODE_TAB);
 
-    public static final RegistrySupplier<CreativeModeTab> CTL_TAB = CREATIVE_MODE_TABS.register(new ResourceLocation(MOD_ID, "ctl_tab"),
+    public static final RegistrySupplier<CreativeModeTab> CTL_TAB = CREATIVE_MODE_TABS.register(ResourceLocation.fromNamespaceAndPath(MOD_ID, "ctl_tab"),
             () -> CreativeTabRegistry.create(
                     Component.translatable("itemGroup." + MOD_ID + ".ctl_tab"), // Tab Name
                     () -> new ItemStack(ModBlocks.ILB_BLOCK.asItem()) // Icon

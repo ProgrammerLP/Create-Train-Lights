@@ -40,10 +40,9 @@ public class LightBlockBase extends Block {
     }
 
     @Override
-    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
         level.setBlockAndUpdate(pos, state.setValue(LIT, !state.getValue(LIT)));
         level.playSound(player, pos, SoundEvents.COMPARATOR_CLICK, SoundSource.BLOCKS, 1F, 0.5f);
         return InteractionResult.SUCCESS;
     }
-
 }

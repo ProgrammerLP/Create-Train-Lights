@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[47,)"
+loaderVersion = "[4,)"
 issueTrackerURL = "https://github.com/ProgrammerLP/Create-Train-Lights/issues"
 license = "AGPL-3"
 
@@ -14,29 +14,32 @@ Create addon that adds custom interior and head tail lights for trains that auto
 logoFile = "mod_icon.png"
 
 [[dependencies.ctl]]
-modId = "forge"
-mandatory = true
-versionRange = "[47,)"
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.ctl]]
 modId = "minecraft"
-mandatory = true
-versionRange = "[1.20.1,)"
+type = "required"
+versionRange = "[1.21.1,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.ctl]]
 modId = "architectury"
-mandatory = true
-versionRange = "[9.2.14,)"
+type = "required"
+versionRange = "[13.0.8,)"
 ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies.ctl]]
-modId="create"
-mandatory=true
-versionRange="[0.5.1.f,]"
-ordering="NONE"
-side="BOTH"
+modId = "create"
+type = "required"
+versionRange = "[6.0.6,]"
+ordering = "NONE"
+side = "BOTH"
+
+[[mixins]]
+config = "ctl.mixins.json"
