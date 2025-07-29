@@ -7,11 +7,11 @@ import net.minecraft.world.item.Item;
 
 public class ModItems {
 
-//    public static final ItemEntry<Item> SPEAKER_MEMBRANE =
-//            item("speaker_membrane");
-//
-//    public static final ItemEntry<SequencedAssemblyItem> INCOMPLETE_SOUND_UNIT =
-//            sequencedAssemblyItem("incomplete_sound_unit");
+    public static final ItemEntry<SequencedAssemblyItem> IC_HTLB_BLOCK =
+            sequencedAssemblyItem("ic_htlb_block");
+
+    public static final ItemEntry<SequencedAssemblyItem> IC_ILB_BLOCK =
+            sequencedAssemblyItem("ic_ilb_block");
 
 
     private static ItemEntry<Item> item(String name) {
