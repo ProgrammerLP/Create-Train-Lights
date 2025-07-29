@@ -1,5 +1,4 @@
 {
-	"format_version": "1.21.6",
 	"credit": "Made with Blockbench",
 	"textures": {
 		"0": "ctl:block/quarter_ilb/texture_quarter_ilb_1",
@@ -10,7 +9,6 @@
 			"from": [13, 4, 4],
 			"to": [16, 12, 12],
 			"rotation": {"angle": 0, "axis": "x", "origin": [13, 12, 4]},
-			"rotated": [0, 0, 0],
 			"faces": {
 				"north": {"uv": [8, 0, 16, 3], "rotation": 270, "texture": "#0"},
 				"east": {"uv": [8, 8, 0, 0], "rotation": 90, "texture": "#0"},
@@ -20,5 +18,34 @@
 				"down": {"uv": [8, 3, 16, 6], "rotation": 90, "texture": "#0"}
 			}
 		}
-	]
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [-5.25, 2.25, 1.5]
+		},
+		"thirdperson_lefthand": {
+			"translation": [7.75, 2.25, 1.5]
+		},
+		"firstperson_righthand": {
+			"translation": [0, 1.75, 0]
+		},
+		"firstperson_lefthand": {
+			"translation": [7.75, 2.25, 1.5]
+		},
+		"ground": {
+			"rotation": [0, 90, 0],
+			"scale": [0.67, 0.67, 0.67]
+		},
+		"gui": {
+			"rotation": [0, 90, 0]
+		},
+		"head": {
+			"rotation": [0, 90, 0]
+		},
+		"fixed": {
+			"rotation": [0, -90, 0],
+			"translation": [0, 0, -6]
+		}
+	},
+	"format_version": "1.21.6"
 }

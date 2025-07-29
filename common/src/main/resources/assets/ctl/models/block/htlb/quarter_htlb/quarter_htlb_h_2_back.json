@@ -1,5 +1,4 @@
 {
-	"format_version": "1.21.6",
 	"credit": "Made with Blockbench",
 	"textures": {
 		"0": "ctl:block/quarter_ilb/texture_quarter_ilb_0",
@@ -20,5 +19,40 @@
 				"down": {"uv": [8, 3, 16, 6], "rotation": 90, "texture": "#0"}
 			}
 		}
-	]
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [-4, 0, 0],
+			"scale": [0.61, 0.61, 0.61]
+		},
+		"thirdperson_lefthand": {
+			"translation": [-4, 0, 0],
+			"scale": [0.61, 0.61, 0.61]
+		},
+		"firstperson_righthand": {
+			"translation": [0, 1.75, 0.75],
+			"scale": [0.61, 0.62, 0.36]
+		},
+		"firstperson_lefthand": {
+			"translation": [7.25, 2.25, 0.75],
+			"scale": [0.61, 0.62, 0.36]
+		},
+		"ground": {
+			"translation": [0, 1.75, 0.75],
+			"scale": [0.61, 0.62, 0.6]
+		},
+		"gui": {
+			"rotation": [0, 90, 0],
+			"translation": [0, 0, 80]
+		},
+		"head": {
+			"translation": [0, 1.75, 0.75],
+			"scale": [0.61, 0.62, 0.36]
+		},
+		"fixed": {
+			"rotation": [0, 90, 0],
+			"translation": [0, 0, 6]
+		}
+	},
+	"format_version": "1.21.6"
 }
