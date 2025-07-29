@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "ctl:ilb_block"
+  },
+  "result": "ctl:sloped_ilb",
+  "count": 8
+}

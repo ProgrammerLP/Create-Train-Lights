@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "ctl:htlb_block"
+  },
+  "result": "ctl:quarter_ilb",
+  "count": 24
+}

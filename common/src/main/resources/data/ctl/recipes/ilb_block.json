@@ -1,0 +1,38 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "tag": "minecraft:glass"
+  },
+  "transitionalItem": {
+    "item": "ctl:ic_ilb_block"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "ctl:ic_ilb_block" },
+        { "item": "minecraft:glowstone_dust" }
+      ],
+      "results": [
+        { "item": "ctl:ic_ilb_block" }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "ctl:ic_ilb_block" },
+        { "item": "minecraft:amethyst_shard" }
+      ],
+      "results": [
+        { "item": "ctl:ic_ilb_block" }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "ctl:ilb_block",
+      "chance": 1.0
+    }
+  ],
+  "loops": 1
+}

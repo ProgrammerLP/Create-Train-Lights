@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "ctl:htlb_block"
+  },
+  "result": "ctl:panel_htlb",
+  "count": 6
+}
