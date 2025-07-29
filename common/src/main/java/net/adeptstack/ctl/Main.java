@@ -41,9 +41,9 @@ public final class Main {
         return null;
     }
 
-    static {
-        REGISTRATE.setTooltipModifierFactory(item -> {
-            return new ItemDescription.Modifier(item, TooltipHelper.Palette.STANDARD_CREATE).andThen(TooltipModifier.mapNull(create(item)));
-        });
-    }
+//    static {
+//        REGISTRATE.setTooltipModifierFactory(item -> {
+//            return new ItemDescription.Modifier(item, TooltipHelper.Palette.STANDARD_CREATE).andThen(TooltipModifier.mapNull(create(item)));
+//        });
+//    }
 }
