@@ -29,105 +29,109 @@ public class HeadTailLightMovementBehaviour implements MovementBehaviour {
         if (!context.world.isClientSide())
             tickLIT(context, open);
 
-        BlockPos pos = context.localPos;
-        if (context.contraption.entity instanceof CarriageContraptionEntity cce && context.contraption instanceof CarriageContraption cc) {
-            Direction assemblyDirection = cc.getAssemblyDirection();
-            if (assemblyDirection == Direction.UP || assemblyDirection == Direction.DOWN) {
-                return;
-            }
-
-            Vec3 now = cce.position();
-            Vec3 last = cce.getPrevPositionVec();
-            Vec3 motion = now.subtract(last);
-
-            Direction direction = vecToDirection(motion);
-            if (direction == null)
-                return;
-            if (Math.abs(motion.x) <= 0.0001 && (direction == Direction.EAST || direction == Direction.WEST))
-                return;
-            if (Math.abs(motion.z) <= 0.0001 && (direction == Direction.NORTH || direction == Direction.SOUTH))
-                return;
-            if (Math.abs(motion.y) <= 0.0005 && Math.abs(motion.y) != 0)
-                return;
-
-            int localXZ;
-            Vec3 value;
-            if (assemblyDirection == Direction.EAST || assemblyDirection == Direction.WEST) {
-                localXZ = pos.getX();
-                Vec3 localP = new Vec3(1, 0, 0);
-                Vec3 localN = new Vec3(-1, 0, 0);
-                Vec3 globalP = cce.toGlobalVector(localP, 1f);
-                Vec3 globalN = cce.toGlobalVector(localN, 1f);
-                value = globalP.subtract(globalN);
-            }
-            else {
-                localXZ = pos.getZ();
-                Vec3 localP = new Vec3(0, 0, 1);
-                Vec3 localN = new Vec3(0, 0, -1);
-                Vec3 globalP = cce.toGlobalVector(localP, 1f);
-                Vec3 globalN = cce.toGlobalVector(localN, 1f);
-                value = globalP.subtract(globalN);
-            }
-
-            System.out.println(context.localPos);
-
-            if (direction == Direction.NORTH) {
-                if (value.z > 0 && localXZ > 0) {
-                    context.state = context.state .setValue(HeadTailLightBlockBase.LIGHT_MODE, 1);
-                    context.contraption.entity.setBlock(pos, new StructureTemplate.StructureBlockInfo(pos, context.state, structureBlockInfo.nbt()));
-                } else if (value.z > 0 && localXZ < 0) {
-                    context.state = context.state .setValue(HeadTailLightBlockBase.LIGHT_MODE, 0);
-                    context.contraption.entity.setBlock(pos, new StructureTemplate.StructureBlockInfo(pos, context.state, structureBlockInfo.nbt()));
-                } else if (value.z < 0 && localXZ > 0) {
-                    context.state = context.state .setValue(HeadTailLightBlockBase.LIGHT_MODE, 0);
-                    context.contraption.entity.setBlock(pos, new StructureTemplate.StructureBlockInfo(pos, context.state, structureBlockInfo.nbt()));
-                } else if (value.z < 0 && localXZ < 0) {
-                    context.state = context.state .setValue(HeadTailLightBlockBase.LIGHT_MODE, 1);
-                    context.contraption.entity.setBlock(pos, new StructureTemplate.StructureBlockInfo(pos, context.state, structureBlockInfo.nbt()));
+        int ticksOpen = context.data.getInt("OpenTicks");
+        ticksOpen++;
+        context.data.putInt("OpenTicks", ticksOpen);
+        if (ticksOpen > 20) {
+            BlockPos pos = context.localPos;
+            if (context.contraption.entity instanceof CarriageContraptionEntity cce && context.contraption instanceof CarriageContraption cc) {
+                Direction assemblyDirection = cc.getAssemblyDirection();
+                if (assemblyDirection == Direction.UP || assemblyDirection == Direction.DOWN) {
+                    return;
                 }
-            } else if (direction == Direction.EAST) {
-                if (value.x > 0 && localXZ > 0) {
-                    context.state = context.state .setValue(HeadTailLightBlockBase.LIGHT_MODE, 0);
-                    context.contraption.entity.setBlock(pos, new StructureTemplate.StructureBlockInfo(pos, context.state, structureBlockInfo.nbt()));
-                } else if (value.x > 0 && localXZ < 0) {
-                    context.state = context.state .setValue(HeadTailLightBlockBase.LIGHT_MODE, 1);
-                    context.contraption.entity.setBlock(pos, new StructureTemplate.StructureBlockInfo(pos, context.state, structureBlockInfo.nbt()));
-                } else if (value.x < 0 && localXZ > 0) {
-                    context.state = context.state .setValue(HeadTailLightBlockBase.LIGHT_MODE, 1);
-                    context.contraption.entity.setBlock(pos, new StructureTemplate.StructureBlockInfo(pos, context.state, structureBlockInfo.nbt()));
-                } else if (value.x < 0 && localXZ < 0) {
-                    context.state = context.state .setValue(HeadTailLightBlockBase.LIGHT_MODE, 0);
-                    context.contraption.entity.setBlock(pos, new StructureTemplate.StructureBlockInfo(pos, context.state, structureBlockInfo.nbt()));
+
+                Vec3 now = cce.position();
+                Vec3 last = cce.getPrevPositionVec();
+                Vec3 motion = now.subtract(last);
+
+                Direction direction = vecToDirection(motion);
+                if (direction == null)
+                    return;
+                if (Math.abs(motion.x) <= 0.0001 && (direction == Direction.EAST || direction == Direction.WEST))
+                    return;
+                if (Math.abs(motion.z) <= 0.0001 && (direction == Direction.NORTH || direction == Direction.SOUTH))
+                    return;
+                if (Math.abs(motion.y) <= 0.0005 && Math.abs(motion.y) != 0)
+                    return;
+
+                int localXZ;
+                Vec3 value;
+                if (assemblyDirection == Direction.EAST || assemblyDirection == Direction.WEST) {
+                    localXZ = pos.getX();
+                    Vec3 localP = new Vec3(1, 0, 0);
+                    Vec3 localN = new Vec3(-1, 0, 0);
+                    Vec3 globalP = cce.toGlobalVector(localP, 1f);
+                    Vec3 globalN = cce.toGlobalVector(localN, 1f);
+                    value = globalP.subtract(globalN);
                 }
-            } else if (direction == Direction.SOUTH) {
-                if (value.z > 0 && localXZ > 0) {
-                    context.state = context.state .setValue(HeadTailLightBlockBase.LIGHT_MODE, 0);
-                    context.contraption.entity.setBlock(pos, new StructureTemplate.StructureBlockInfo(pos, context.state, structureBlockInfo.nbt()));
-                } else if (value.z > 0 && localXZ < 0) {
-                    context.state = context.state .setValue(HeadTailLightBlockBase.LIGHT_MODE, 1);
-                    context.contraption.entity.setBlock(pos, new StructureTemplate.StructureBlockInfo(pos, context.state, structureBlockInfo.nbt()));
-                } else if (value.z < 0 && localXZ > 0) {
-                    context.state = context.state .setValue(HeadTailLightBlockBase.LIGHT_MODE, 1);
-                    context.contraption.entity.setBlock(pos, new StructureTemplate.StructureBlockInfo(pos, context.state, structureBlockInfo.nbt()));
-                } else if (value.z < 0 && localXZ < 0) {
-                    context.state = context.state .setValue(HeadTailLightBlockBase.LIGHT_MODE, 0);
-                    context.contraption.entity.setBlock(pos, new StructureTemplate.StructureBlockInfo(pos, context.state, structureBlockInfo.nbt()));
+                else {
+                    localXZ = pos.getZ();
+                    Vec3 localP = new Vec3(0, 0, 1);
+                    Vec3 localN = new Vec3(0, 0, -1);
+                    Vec3 globalP = cce.toGlobalVector(localP, 1f);
+                    Vec3 globalN = cce.toGlobalVector(localN, 1f);
+                    value = globalP.subtract(globalN);
                 }
-            } else if (direction == Direction.WEST) {
-                if (value.x > 0 && localXZ > 0) {
-                    context.state = context.state .setValue(HeadTailLightBlockBase.LIGHT_MODE, 1);
-                    context.contraption.entity.setBlock(pos, new StructureTemplate.StructureBlockInfo(pos, context.state, structureBlockInfo.nbt()));
-                } else if (value.x > 0 && localXZ < 0) {
-                    context.state = context.state .setValue(HeadTailLightBlockBase.LIGHT_MODE, 0);
-                    context.contraption.entity.setBlock(pos, new StructureTemplate.StructureBlockInfo(pos, context.state, structureBlockInfo.nbt()));
-                } else if (value.x < 0 && localXZ > 0) {
-                    context.state = context.state .setValue(HeadTailLightBlockBase.LIGHT_MODE, 0);
-                    context.contraption.entity.setBlock(pos, new StructureTemplate.StructureBlockInfo(pos, context.state, structureBlockInfo.nbt()));
-                } else if (value.x < 0 && localXZ < 0) {
-                    context.state = context.state .setValue(HeadTailLightBlockBase.LIGHT_MODE, 1);
-                    context.contraption.entity.setBlock(pos, new StructureTemplate.StructureBlockInfo(pos, context.state, structureBlockInfo.nbt()));
+
+                if (direction == Direction.NORTH) {
+                    if (value.z > 0 && localXZ > 0) {
+                        context.state = context.state .setValue(HeadTailLightBlockBase.LIGHT_MODE, 1);
+                        context.contraption.entity.setBlock(pos, new StructureTemplate.StructureBlockInfo(pos, context.state, structureBlockInfo.nbt()));
+                    } else if (value.z > 0 && localXZ < 0) {
+                        context.state = context.state .setValue(HeadTailLightBlockBase.LIGHT_MODE, 0);
+                        context.contraption.entity.setBlock(pos, new StructureTemplate.StructureBlockInfo(pos, context.state, structureBlockInfo.nbt()));
+                    } else if (value.z < 0 && localXZ > 0) {
+                        context.state = context.state .setValue(HeadTailLightBlockBase.LIGHT_MODE, 0);
+                        context.contraption.entity.setBlock(pos, new StructureTemplate.StructureBlockInfo(pos, context.state, structureBlockInfo.nbt()));
+                    } else if (value.z < 0 && localXZ < 0) {
+                        context.state = context.state .setValue(HeadTailLightBlockBase.LIGHT_MODE, 1);
+                        context.contraption.entity.setBlock(pos, new StructureTemplate.StructureBlockInfo(pos, context.state, structureBlockInfo.nbt()));
+                    }
+                } else if (direction == Direction.EAST) {
+                    if (value.x > 0 && localXZ > 0) {
+                        context.state = context.state .setValue(HeadTailLightBlockBase.LIGHT_MODE, 0);
+                        context.contraption.entity.setBlock(pos, new StructureTemplate.StructureBlockInfo(pos, context.state, structureBlockInfo.nbt()));
+                    } else if (value.x > 0 && localXZ < 0) {
+                        context.state = context.state .setValue(HeadTailLightBlockBase.LIGHT_MODE, 1);
+                        context.contraption.entity.setBlock(pos, new StructureTemplate.StructureBlockInfo(pos, context.state, structureBlockInfo.nbt()));
+                    } else if (value.x < 0 && localXZ > 0) {
+                        context.state = context.state .setValue(HeadTailLightBlockBase.LIGHT_MODE, 1);
+                        context.contraption.entity.setBlock(pos, new StructureTemplate.StructureBlockInfo(pos, context.state, structureBlockInfo.nbt()));
+                    } else if (value.x < 0 && localXZ < 0) {
+                        context.state = context.state .setValue(HeadTailLightBlockBase.LIGHT_MODE, 0);
+                        context.contraption.entity.setBlock(pos, new StructureTemplate.StructureBlockInfo(pos, context.state, structureBlockInfo.nbt()));
+                    }
+                } else if (direction == Direction.SOUTH) {
+                    if (value.z > 0 && localXZ > 0) {
+                        context.state = context.state .setValue(HeadTailLightBlockBase.LIGHT_MODE, 0);
+                        context.contraption.entity.setBlock(pos, new StructureTemplate.StructureBlockInfo(pos, context.state, structureBlockInfo.nbt()));
+                    } else if (value.z > 0 && localXZ < 0) {
+                        context.state = context.state .setValue(HeadTailLightBlockBase.LIGHT_MODE, 1);
+                        context.contraption.entity.setBlock(pos, new StructureTemplate.StructureBlockInfo(pos, context.state, structureBlockInfo.nbt()));
+                    } else if (value.z < 0 && localXZ > 0) {
+                        context.state = context.state .setValue(HeadTailLightBlockBase.LIGHT_MODE, 1);
+                        context.contraption.entity.setBlock(pos, new StructureTemplate.StructureBlockInfo(pos, context.state, structureBlockInfo.nbt()));
+                    } else if (value.z < 0 && localXZ < 0) {
+                        context.state = context.state .setValue(HeadTailLightBlockBase.LIGHT_MODE, 0);
+                        context.contraption.entity.setBlock(pos, new StructureTemplate.StructureBlockInfo(pos, context.state, structureBlockInfo.nbt()));
+                    }
+                } else if (direction == Direction.WEST) {
+                    if (value.x > 0 && localXZ > 0) {
+                        context.state = context.state .setValue(HeadTailLightBlockBase.LIGHT_MODE, 1);
+                        context.contraption.entity.setBlock(pos, new StructureTemplate.StructureBlockInfo(pos, context.state, structureBlockInfo.nbt()));
+                    } else if (value.x > 0 && localXZ < 0) {
+                        context.state = context.state .setValue(HeadTailLightBlockBase.LIGHT_MODE, 0);
+                        context.contraption.entity.setBlock(pos, new StructureTemplate.StructureBlockInfo(pos, context.state, structureBlockInfo.nbt()));
+                    } else if (value.x < 0 && localXZ > 0) {
+                        context.state = context.state .setValue(HeadTailLightBlockBase.LIGHT_MODE, 0);
+                        context.contraption.entity.setBlock(pos, new StructureTemplate.StructureBlockInfo(pos, context.state, structureBlockInfo.nbt()));
+                    } else if (value.x < 0 && localXZ < 0) {
+                        context.state = context.state .setValue(HeadTailLightBlockBase.LIGHT_MODE, 1);
+                        context.contraption.entity.setBlock(pos, new StructureTemplate.StructureBlockInfo(pos, context.state, structureBlockInfo.nbt()));
+                    }
                 }
             }
+            context.data.putInt("OpenTicks", 0);
         }
     }
 
