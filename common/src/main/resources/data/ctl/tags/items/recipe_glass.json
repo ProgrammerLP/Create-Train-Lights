@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "trainutilities:frameless_glass",
+    "minecraft:glass",
+    "create:framed_glass"
+  ]
+}
