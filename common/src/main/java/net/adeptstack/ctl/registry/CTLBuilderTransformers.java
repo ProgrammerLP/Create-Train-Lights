@@ -9,10 +9,7 @@ import net.adeptstack.ctl.behaviours.movement.InteriorLightMovementBehaviour;
 import net.adeptstack.ctl.behaviours.interaction.InteriorLightMovingInteraction;
 import net.adeptstack.ctl.blocks.lights.HeadTailLightBlockBase;
 import net.adeptstack.ctl.blocks.lights.LightBlockBase;
-import net.adeptstack.ctl.blocks.lights.headTailLights.horizontal.HalfPanelHeadTailLightBlock;
-import net.adeptstack.ctl.blocks.lights.headTailLights.horizontal.PanelHeadTailLightBlock;
-import net.adeptstack.ctl.blocks.lights.headTailLights.horizontal.QuarterHeadTailLightBlock;
-import net.adeptstack.ctl.blocks.lights.headTailLights.horizontal.VerticalHalfPanelHeadTailLightBlock;
+import net.adeptstack.ctl.blocks.lights.headTailLights.horizontal.*;
 import net.adeptstack.ctl.blocks.lights.interiorLights.fulldirectional.HalfPanelInteriorLightBlock;
 import net.adeptstack.ctl.blocks.lights.interiorLights.fulldirectional.QuarterInteriorLightBlock;
 import net.adeptstack.ctl.blocks.lights.interiorLights.horizontal.VerticalHalfPanelInteriorLightBlock;
@@ -155,6 +152,39 @@ public class CTLBuilderTransformers {
     public static BlockEntry<QuarterHeadTailLightBlock> QuarterHeadTailLightBlock(String id, MapColor color) {
         return REGISTRATE
                 .block(id, QuarterHeadTailLightBlock::new)
+                .initialProperties(() -> Blocks.IRON_BLOCK)
+                .properties(p -> p.mapColor(color)
+                        .sound(SoundType.GLASS)
+                        .lightLevel(state -> state.getValue(LightBlockBase.LIT) ? state.getValue(QuarterHeadTailLightBlock.LIGHT_MODE) == 0 ? 15 : 10 : 0))
+                .transform(htLightBlock())
+                .register();
+    }
+
+    public static BlockEntry<VerticalSlabHeadTailLightBlock> VerticalSlabHeadTailLightBlock(String id, MapColor color) {
+        return REGISTRATE
+                .block(id, VerticalSlabHeadTailLightBlock::new)
+                .initialProperties(() -> Blocks.IRON_BLOCK)
+                .properties(p -> p.mapColor(color)
+                        .sound(SoundType.GLASS)
+                        .lightLevel(state -> state.getValue(LightBlockBase.LIT) ? state.getValue(QuarterHeadTailLightBlock.LIGHT_MODE) == 0 ? 15 : 10 : 0))
+                .transform(htLightBlock())
+                .register();
+    }
+
+    public static BlockEntry<VerticalStepHeadTailLightBlock> VerticalStepHeadTailLightBlock(String id, MapColor color) {
+        return REGISTRATE
+                .block(id, VerticalStepHeadTailLightBlock::new)
+                .initialProperties(() -> Blocks.IRON_BLOCK)
+                .properties(p -> p.mapColor(color)
+                        .sound(SoundType.GLASS)
+                        .lightLevel(state -> state.getValue(LightBlockBase.LIT) ? state.getValue(QuarterHeadTailLightBlock.LIGHT_MODE) == 0 ? 15 : 10 : 0))
+                .transform(htLightBlock())
+                .register();
+    }
+
+    public static BlockEntry<StepHeadTailLightBlock> StepHeadTailLightBlock(String id, MapColor color) {
+        return REGISTRATE
+                .block(id, StepHeadTailLightBlock::new)
                 .initialProperties(() -> Blocks.IRON_BLOCK)
                 .properties(p -> p.mapColor(color)
                         .sound(SoundType.GLASS)
