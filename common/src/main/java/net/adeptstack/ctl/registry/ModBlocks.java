@@ -4,11 +4,8 @@ import com.tterrag.registrate.util.entry.BlockEntry;
 import net.adeptstack.ctl.blocks.lights.HeadTailLightBlockBase;
 import net.adeptstack.ctl.blocks.lights.LightBlockBase;
 import net.adeptstack.ctl.blocks.lights.headTailLights.horizontal.*;
-import net.adeptstack.ctl.blocks.lights.interiorLights.fulldirectional.HalfPanelInteriorLightBlock;
-import net.adeptstack.ctl.blocks.lights.interiorLights.fulldirectional.QuarterInteriorLightBlock;
-import net.adeptstack.ctl.blocks.lights.interiorLights.fulldirectional.SlabInteriorLightBlock;
+import net.adeptstack.ctl.blocks.lights.interiorLights.fulldirectional.*;
 import net.adeptstack.ctl.blocks.lights.interiorLights.horizontal.*;
-import net.adeptstack.ctl.blocks.lights.interiorLights.fulldirectional.PanelInteriorLightBlock;
 import net.minecraft.world.level.material.MapColor;
 
 public class ModBlocks {
@@ -36,6 +33,9 @@ public class ModBlocks {
 
     public static final BlockEntry<VerticalStepInteriorLightBlock> VERTICAL_STEP_ILB =
             CTLBuilderTransformers.VerticalStepInteriorLightBlock("vertical_step_ilb", MapColor.COLOR_GRAY);
+
+    public static final BlockEntry<StepInteriorLightBlock> STEP_ILB =
+            CTLBuilderTransformers.StepInteriorLightBlock("step_ilb", MapColor.COLOR_GRAY);
 
     public static final BlockEntry<SlabInteriorLightBlock> VERTICAL_SLAB_ILB =
             CTLBuilderTransformers.SlabInteriorLightBlock("slab_ilb", MapColor.COLOR_GRAY);
