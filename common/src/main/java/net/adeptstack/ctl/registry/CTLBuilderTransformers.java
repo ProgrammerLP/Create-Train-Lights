@@ -9,22 +9,15 @@ import net.adeptstack.ctl.behaviours.movement.InteriorLightMovementBehaviour;
 import net.adeptstack.ctl.behaviours.interaction.InteriorLightMovingInteraction;
 import net.adeptstack.ctl.blocks.lights.HeadTailLightBlockBase;
 import net.adeptstack.ctl.blocks.lights.LightBlockBase;
-import net.adeptstack.ctl.blocks.lights.headTailLights.horizontal.HalfPanelHeadTailLightBlock;
-import net.adeptstack.ctl.blocks.lights.headTailLights.horizontal.PanelHeadTailLightBlock;
-import net.adeptstack.ctl.blocks.lights.headTailLights.horizontal.QuarterHeadTailLightBlock;
-import net.adeptstack.ctl.blocks.lights.headTailLights.horizontal.VerticalHalfPanelHeadTailLightBlock;
-import net.adeptstack.ctl.blocks.lights.interiorLights.fulldirectional.HalfPanelInteriorLightBlock;
-import net.adeptstack.ctl.blocks.lights.interiorLights.fulldirectional.QuarterInteriorLightBlock;
-import net.adeptstack.ctl.blocks.lights.interiorLights.horizontal.VerticalHalfPanelInteriorLightBlock;
-import net.adeptstack.ctl.blocks.lights.interiorLights.horizontal.GridInteriorLightBlock;
-import net.adeptstack.ctl.blocks.lights.interiorLights.fulldirectional.PanelInteriorLightBlock;
-import net.adeptstack.ctl.blocks.lights.interiorLights.horizontal.SlopedInteriorLightBlock;
+import net.adeptstack.ctl.blocks.lights.headTailLights.horizontal.*;
+import net.adeptstack.ctl.blocks.lights.interiorLights.fulldirectional.*;
+import net.adeptstack.ctl.blocks.lights.interiorLights.horizontal.*;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.material.MapColor;
 
-import static com.simibubi.create.AllInteractionBehaviours.interactionBehaviour;
-import static com.simibubi.create.AllMovementBehaviours.movementBehaviour;
+import static com.simibubi.create.api.behaviour.interaction.MovingInteractionBehaviour.interactionBehaviour;
+import static com.simibubi.create.api.behaviour.movement.MovementBehaviour.movementBehaviour;
 import static com.simibubi.create.foundation.data.TagGen.pickaxeOnly;
 import static net.adeptstack.ctl.Main.REGISTRATE;
 
@@ -108,6 +101,39 @@ public class CTLBuilderTransformers {
                 .register();
     }
 
+    public static BlockEntry<VerticalStepInteriorLightBlock> VerticalStepInteriorLightBlock(String id, MapColor color) {
+        return REGISTRATE
+                .block(id, VerticalStepInteriorLightBlock::new)
+                .initialProperties(() -> Blocks.IRON_BLOCK)
+                .properties(p -> p.mapColor(color)
+                        .sound(SoundType.GLASS)
+                        .lightLevel(state -> state.getValue(LightBlockBase.LIT) ? 15 : 0))
+                .transform(interiorLightBlock())
+                .register();
+    }
+
+    public static BlockEntry<StepInteriorLightBlock> StepInteriorLightBlock(String id, MapColor color) {
+        return REGISTRATE
+                .block(id, StepInteriorLightBlock::new)
+                .initialProperties(() -> Blocks.IRON_BLOCK)
+                .properties(p -> p.mapColor(color)
+                        .sound(SoundType.GLASS)
+                        .lightLevel(state -> state.getValue(LightBlockBase.LIT) ? 15 : 0))
+                .transform(interiorLightBlock())
+                .register();
+    }
+
+    public static BlockEntry<SlabInteriorLightBlock> SlabInteriorLightBlock(String id, MapColor color) {
+        return REGISTRATE
+                .block(id, SlabInteriorLightBlock::new)
+                .initialProperties(() -> Blocks.IRON_BLOCK)
+                .properties(p -> p.mapColor(color)
+                        .sound(SoundType.GLASS)
+                        .lightLevel(state -> state.getValue(LightBlockBase.LIT) ? 15 : 0))
+                .transform(interiorLightBlock())
+                .register();
+    }
+
     public static BlockEntry<HeadTailLightBlockBase> HeadTailLightBlock(String id, MapColor color) {
         return REGISTRATE
                 .block(id, HeadTailLightBlockBase::new)
@@ -155,6 +181,39 @@ public class CTLBuilderTransformers {
     public static BlockEntry<QuarterHeadTailLightBlock> QuarterHeadTailLightBlock(String id, MapColor color) {
         return REGISTRATE
                 .block(id, QuarterHeadTailLightBlock::new)
+                .initialProperties(() -> Blocks.IRON_BLOCK)
+                .properties(p -> p.mapColor(color)
+                        .sound(SoundType.GLASS)
+                        .lightLevel(state -> state.getValue(LightBlockBase.LIT) ? state.getValue(QuarterHeadTailLightBlock.LIGHT_MODE) == 0 ? 15 : 10 : 0))
+                .transform(htLightBlock())
+                .register();
+    }
+
+    public static BlockEntry<VerticalSlabHeadTailLightBlock> VerticalSlabHeadTailLightBlock(String id, MapColor color) {
+        return REGISTRATE
+                .block(id, VerticalSlabHeadTailLightBlock::new)
+                .initialProperties(() -> Blocks.IRON_BLOCK)
+                .properties(p -> p.mapColor(color)
+                        .sound(SoundType.GLASS)
+                        .lightLevel(state -> state.getValue(LightBlockBase.LIT) ? state.getValue(QuarterHeadTailLightBlock.LIGHT_MODE) == 0 ? 15 : 10 : 0))
+                .transform(htLightBlock())
+                .register();
+    }
+
+    public static BlockEntry<VerticalStepHeadTailLightBlock> VerticalStepHeadTailLightBlock(String id, MapColor color) {
+        return REGISTRATE
+                .block(id, VerticalStepHeadTailLightBlock::new)
+                .initialProperties(() -> Blocks.IRON_BLOCK)
+                .properties(p -> p.mapColor(color)
+                        .sound(SoundType.GLASS)
+                        .lightLevel(state -> state.getValue(LightBlockBase.LIT) ? state.getValue(QuarterHeadTailLightBlock.LIGHT_MODE) == 0 ? 15 : 10 : 0))
+                .transform(htLightBlock())
+                .register();
+    }
+
+    public static BlockEntry<StepHeadTailLightBlock> StepHeadTailLightBlock(String id, MapColor color) {
+        return REGISTRATE
+                .block(id, StepHeadTailLightBlock::new)
                 .initialProperties(() -> Blocks.IRON_BLOCK)
                 .properties(p -> p.mapColor(color)
                         .sound(SoundType.GLASS)

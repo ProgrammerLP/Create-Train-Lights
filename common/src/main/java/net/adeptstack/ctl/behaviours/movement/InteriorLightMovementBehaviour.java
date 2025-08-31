@@ -1,7 +1,7 @@
 package net.adeptstack.ctl.behaviours.movement;
 
+import com.simibubi.create.api.behaviour.movement.MovementBehaviour;
 import com.simibubi.create.content.contraptions.Contraption;
-import com.simibubi.create.content.contraptions.behaviour.MovementBehaviour;
 import com.simibubi.create.content.contraptions.behaviour.MovementContext;
 import com.simibubi.create.content.contraptions.elevator.ElevatorContraption;
 import net.adeptstack.ctl.blocks.lights.LightBlockBase;
@@ -89,11 +89,6 @@ public class InteriorLightMovementBehaviour implements MovementBehaviour {
             context.temporaryData = null;
             return false;
         }
-        return true;
-    }
-
-    @Override
-    public boolean renderAsNormalBlockEntity() {
         return true;
     }
 
