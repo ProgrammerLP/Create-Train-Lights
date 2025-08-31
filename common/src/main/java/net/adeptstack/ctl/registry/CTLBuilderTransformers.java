@@ -12,6 +12,7 @@ import net.adeptstack.ctl.blocks.lights.LightBlockBase;
 import net.adeptstack.ctl.blocks.lights.headTailLights.horizontal.*;
 import net.adeptstack.ctl.blocks.lights.interiorLights.fulldirectional.HalfPanelInteriorLightBlock;
 import net.adeptstack.ctl.blocks.lights.interiorLights.fulldirectional.QuarterInteriorLightBlock;
+import net.adeptstack.ctl.blocks.lights.interiorLights.fulldirectional.SlabInteriorLightBlock;
 import net.adeptstack.ctl.blocks.lights.interiorLights.horizontal.*;
 import net.adeptstack.ctl.blocks.lights.interiorLights.fulldirectional.PanelInteriorLightBlock;
 import net.minecraft.client.renderer.RenderType;
@@ -114,9 +115,9 @@ public class CTLBuilderTransformers {
                 .register();
     }
 
-    public static BlockEntry<VerticalSlabInteriorLightBlock> VerticalSlabInteriorLightBlock(String id, MapColor color) {
+    public static BlockEntry<SlabInteriorLightBlock> SlabInteriorLightBlock(String id, MapColor color) {
         return REGISTRATE
-                .block(id, VerticalSlabInteriorLightBlock::new)
+                .block(id, SlabInteriorLightBlock::new)
                 .initialProperties(() -> Blocks.IRON_BLOCK)
                 .properties(p -> p.mapColor(color)
                         .sound(SoundType.GLASS)

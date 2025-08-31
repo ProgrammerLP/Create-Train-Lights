@@ -1,6 +1,6 @@
-package net.adeptstack.ctl.blocks.lights.interiorLights.horizontal;
+package net.adeptstack.ctl.blocks.lights.interiorLights.fulldirectional;
 
-import net.adeptstack.ctl.blocks.lights.interiorLights.HorizontalInteriorLightBlock;
+import net.adeptstack.ctl.blocks.lights.interiorLights.FullDirectionalInteriorLightBlock;
 import net.adeptstack.ctl.enums.EBlockZPosition;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -13,7 +13,7 @@ import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class VerticalSlabInteriorLightBlock extends HorizontalInteriorLightBlock {
+public class SlabInteriorLightBlock extends FullDirectionalInteriorLightBlock {
     public static final EnumProperty<EBlockZPosition> Z_ALIGN = EnumProperty.create("z_align", EBlockZPosition.class);
 
     private static final VoxelShape SHAPE_CT_SN = Block.box(0, 0, 4, 16, 16, 12);
@@ -25,7 +25,10 @@ public class VerticalSlabInteriorLightBlock extends HorizontalInteriorLightBlock
     private static final VoxelShape SHAPE_N = Block.box(0, 0, 8, 16, 16, 16);
     private static final VoxelShape SHAPE_W = Block.box(8, 0, 0, 16, 16, 16);
 
-    public VerticalSlabInteriorLightBlock(Properties properties) {
+    private static final VoxelShape SHAPE_U = Block.box(0, 8, 0, 16, 16, 16);
+    private static final VoxelShape SHAPE_D = Block.box(0, 0, 0, 16, 8, 16);
+
+    public SlabInteriorLightBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any()
                 .setValue(Z_ALIGN, EBlockZPosition.CENTER));
@@ -43,7 +46,13 @@ public class VerticalSlabInteriorLightBlock extends HorizontalInteriorLightBlock
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        if (pState.getValue(Z_ALIGN) == EBlockZPosition.POSITIVE) {
+        if (pState.getValue(FACING) == Direction.UP) {
+            return SHAPE_U;
+        }
+        else if (pState.getValue(FACING) == Direction.DOWN) {
+            return  SHAPE_D;
+        }
+        else if (pState.getValue(Z_ALIGN) == EBlockZPosition.POSITIVE) {
             return pState.getValue(FACING) == Direction.NORTH ? SHAPE_N : pState.getValue(FACING) == Direction.WEST ? SHAPE_W : pState.getValue(FACING) == Direction.SOUTH ? SHAPE_S : SHAPE_E;
         }
         else if (pState.getValue(Z_ALIGN) == EBlockZPosition.NEGATIVE) {
@@ -77,7 +86,7 @@ public class VerticalSlabInteriorLightBlock extends HorizontalInteriorLightBlock
         }
 
         return stateForPlacement
-                .setValue(FACING, context.getHorizontalDirection().getOpposite())
+                .setValue(FACING, context.getNearestLookingDirection() == Direction.UP || context.getNearestLookingDirection() == Direction.DOWN ? context.getNearestLookingDirection() : context.getNearestLookingDirection().getOpposite())
                 .setValue(LIT, false)
                 .setValue(Z_ALIGN, zAlign);
     }
