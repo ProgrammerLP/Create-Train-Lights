@@ -22,15 +22,15 @@
 	],
 	"display": {
 		"thirdperson_righthand": {
-			"translation": [-2, 1.5, 0],
+			"translation": [2.5, 1.5, 0],
 			"scale": [0.6, 0.6, 0.6]
 		},
 		"thirdperson_lefthand": {
-			"translation": [2, 1.5, 0],
+			"translation": [-2.25, 1.5, 0],
 			"scale": [0.6, 0.6, 0.6]
 		},
 		"firstperson_righthand": {
-			"translation": [2, 1.5, 0],
+			"translation": [4.25, 1.5, 2],
 			"scale": [0.6, 0.6, 0.6]
 		},
 		"firstperson_lefthand": {
