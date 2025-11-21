@@ -7,10 +7,18 @@
   "block.ctl.halfpanel_ilb": "Interior Light Halfpanel",
   "block.ctl.vertical_halfpanel_ilb": "Vertical Interior Light Halfpanel",
   "block.ctl.quarter_ilb": "Quarter Interior Light",
+  "block.ctl.vertical_step_ilb": "Vertical Step Interior Light",
+  "block.ctl.step_ilb": "Step Interior Light",
+  "block.ctl.slab_ilb": "Slab Interior Light",
+
   "block.ctl.panel_htlb": "Head- Tail Light Panel",
   "block.ctl.halfpanel_htlb": "Head- Tail Light Halfpanel",
   "block.ctl.vertical_halfpanel_htlb": "Vertical Head- Tail Light Halfpanel",
   "block.ctl.quarter_htlb": "Quarter Head- Tail Light",
+  "block.ctl.vertical_step_htlb": "Vertical Step Head- Tail Light",
+  "block.ctl.step_htlb": "Step Head- Tail Light",
+  "block.ctl.vertical_slab_htlb": "Slab Head- Tail Light",
+
   "block.ctl.ilb_block": "Interior Light Block",
   "block.ctl.htlb_block": "Head- Tail Light Block",
 
