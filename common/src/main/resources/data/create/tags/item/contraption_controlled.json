@@ -12,6 +12,12 @@
     "ctl:panel_htlb",
     "ctl:halfpanel_htlb",
     "ctl:vertical_halfpanel_htlb",
-    "ctl:quarter_htlb"
+    "ctl:quarter_htlb",
+    "slab_ilb.json",
+    "step_htlb.json",
+    "step_ilb.json",
+    "vertical_slab_htlb.json",
+    "vertical_step_htlb.json",
+    "vertical_step_ilb.json"
   ]
 }

@@ -4,7 +4,7 @@
     "item": "ctl:htlb_block"
   },
   "result": {
-    "id": "ctl:quarter_htlb",
-    "count": 24
+    "id": "ctl:vertical_step_htlb",
+    "count": 4
   }
 }

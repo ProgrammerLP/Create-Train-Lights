@@ -17,7 +17,7 @@
   "block.ctl.quarter_htlb": "Quarter Head- Tail Light",
   "block.ctl.vertical_step_htlb": "Vertical Step Head- Tail Light",
   "block.ctl.step_htlb": "Step Head- Tail Light",
-  "block.ctl.slab_htlb": "Slab Head- Tail Light",
+  "block.ctl.vertical_slab_htlb": "Slab Head- Tail Light",
 
   "block.ctl.ilb_block": "Interior Light Block",
   "block.ctl.htlb_block": "Head- Tail Light Block",
