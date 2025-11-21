@@ -7,6 +7,7 @@ import com.simibubi.create.foundation.item.TooltipHelper;
 import com.simibubi.create.foundation.item.TooltipModifier;
 import net.adeptstack.ctl.blocks.lights.LightBlockBase;
 import net.adeptstack.ctl.registry.*;
+import net.createmod.catnip.lang.FontHelper;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -41,9 +42,9 @@ public final class Main {
         return null;
     }
 
-//    static {
-//        REGISTRATE.setTooltipModifierFactory(item -> {
-//            return new ItemDescription.Modifier(item, TooltipHelper.Palette.STANDARD_CREATE).andThen(TooltipModifier.mapNull(create(item)));
-//        });
-//    }
+    static {
+        REGISTRATE.setTooltipModifierFactory(item -> {
+            return new ItemDescription.Modifier(item, FontHelper.Palette.STANDARD_CREATE).andThen(TooltipModifier.mapNull(create(item)));
+        }).defaultCreativeTab(ModTabs.CTL_TAB.getKey()); // <-----
+    }
 }

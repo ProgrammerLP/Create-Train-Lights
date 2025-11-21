@@ -3,6 +3,7 @@
   "package": "net.adeptstack.ctl.mixin",
   "compatibilityLevel": "JAVA_17",
   "minVersion": "0.8",
+  "refmap": "ctl.refmap.json",
   "client": [
   ],
   "mixins": [
