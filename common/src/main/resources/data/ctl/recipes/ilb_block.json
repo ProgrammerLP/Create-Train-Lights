@@ -1,7 +1,7 @@
 {
   "type": "create:sequenced_assembly",
   "ingredient": {
-    "tag": "minecraft:glass"
+    "tag": "ctl:recipe_glass"
   },
   "transitionalItem": {
     "item": "ctl:ic_ilb_block"

@@ -3,16 +3,9 @@ package net.adeptstack.ctl.registry;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import net.adeptstack.ctl.blocks.lights.HeadTailLightBlockBase;
 import net.adeptstack.ctl.blocks.lights.LightBlockBase;
-import net.adeptstack.ctl.blocks.lights.headTailLights.horizontal.HalfPanelHeadTailLightBlock;
-import net.adeptstack.ctl.blocks.lights.headTailLights.horizontal.PanelHeadTailLightBlock;
-import net.adeptstack.ctl.blocks.lights.headTailLights.horizontal.QuarterHeadTailLightBlock;
-import net.adeptstack.ctl.blocks.lights.headTailLights.horizontal.VerticalHalfPanelHeadTailLightBlock;
-import net.adeptstack.ctl.blocks.lights.interiorLights.fulldirectional.HalfPanelInteriorLightBlock;
-import net.adeptstack.ctl.blocks.lights.interiorLights.fulldirectional.QuarterInteriorLightBlock;
-import net.adeptstack.ctl.blocks.lights.interiorLights.horizontal.VerticalHalfPanelInteriorLightBlock;
-import net.adeptstack.ctl.blocks.lights.interiorLights.horizontal.GridInteriorLightBlock;
-import net.adeptstack.ctl.blocks.lights.interiorLights.fulldirectional.PanelInteriorLightBlock;
-import net.adeptstack.ctl.blocks.lights.interiorLights.horizontal.SlopedInteriorLightBlock;
+import net.adeptstack.ctl.blocks.lights.headTailLights.horizontal.*;
+import net.adeptstack.ctl.blocks.lights.interiorLights.fulldirectional.*;
+import net.adeptstack.ctl.blocks.lights.interiorLights.horizontal.*;
 import net.minecraft.world.level.material.MapColor;
 
 public class ModBlocks {
@@ -38,6 +31,17 @@ public class ModBlocks {
     public static final BlockEntry<QuarterInteriorLightBlock> QUARTER_ILB =
             CTLBuilderTransformers.QuarterInteriorLightBlock("quarter_ilb", MapColor.COLOR_GRAY);
 
+    public static final BlockEntry<VerticalStepInteriorLightBlock> VERTICAL_STEP_ILB =
+            CTLBuilderTransformers.VerticalStepInteriorLightBlock("vertical_step_ilb", MapColor.COLOR_GRAY);
+
+    public static final BlockEntry<StepInteriorLightBlock> STEP_ILB =
+            CTLBuilderTransformers.StepInteriorLightBlock("step_ilb", MapColor.COLOR_GRAY);
+
+    public static final BlockEntry<SlabInteriorLightBlock> VERTICAL_SLAB_ILB =
+            CTLBuilderTransformers.SlabInteriorLightBlock("slab_ilb", MapColor.COLOR_GRAY);
+
+
+    //HTLB
     public static final BlockEntry<HeadTailLightBlockBase> HTLB_BLOCK =
             CTLBuilderTransformers.HeadTailLightBlock("htlb_block", MapColor.COLOR_BLACK);
 
@@ -52,6 +56,15 @@ public class ModBlocks {
 
     public static final BlockEntry<QuarterHeadTailLightBlock> QUARTER_HTLB =
             CTLBuilderTransformers.QuarterHeadTailLightBlock("quarter_htlb", MapColor.COLOR_GRAY);
+
+    public static final BlockEntry<VerticalSlabHeadTailLightBlock> VERTICAL_SLAB_HTLB =
+            CTLBuilderTransformers.VerticalSlabHeadTailLightBlock("vertical_slab_htlb", MapColor.COLOR_GRAY);
+
+    public static final BlockEntry<VerticalStepHeadTailLightBlock> VERTICAL_STEP_HTLB =
+            CTLBuilderTransformers.VerticalStepHeadTailLightBlock("vertical_step_htlb", MapColor.COLOR_GRAY);
+
+    public static final BlockEntry<StepHeadTailLightBlock> STEP_HTLB =
+            CTLBuilderTransformers.StepHeadTailLightBlock("step_htlb", MapColor.COLOR_GRAY);
 
     public static void register() { }
 }

@@ -1,0 +1,96 @@
+{
+  "variants": {
+    "lit=false,facing=up": {
+      "model": "ctl:block/lb/slab_ilb",
+      "x": 180
+    },
+    "lit=true,facing=up": {
+      "model": "ctl:block/lb/slab_ilb_on",
+      "x": 180
+    },
+    "lit=false,facing=down": {
+      "model": "ctl:block/lb/slab_ilb"
+    },
+    "lit=true,facing=down": {
+      "model": "ctl:block/lb/slab_ilb_on"
+    },
+
+    "facing=north,z_align=positive,lit=false": {
+      "model": "ctl:block/lb/vertical_slab_ilb",
+      "y": 270
+    },
+    "facing=north,z_align=positive,lit=true": {
+      "model": "ctl:block/lb/vertical_slab_ilb_on",
+      "y": 270
+    },
+
+    "facing=north,z_align=negative,lit=false": {
+      "model": "ctl:block/lb/vertical_slab_ilb",
+      "y": 90
+    },
+    "facing=north,z_align=negative,lit=true": {
+      "model": "ctl:block/lb/vertical_slab_ilb_on",
+      "y": 90
+    },
+
+
+
+    "facing=east,z_align=positive,lit=false": {
+      "model": "ctl:block/lb/vertical_slab_ilb",
+      "y": 0
+    },
+    "facing=east,z_align=positive,lit=true": {
+      "model": "ctl:block/lb/vertical_slab_ilb_on",
+      "y": 0
+    },
+
+    "facing=east,z_align=negative,lit=false": {
+      "model": "ctl:block/lb/vertical_slab_ilb",
+      "y": 180
+    },
+    "facing=east,z_align=negative,lit=true": {
+      "model": "ctl:block/lb/vertical_slab_ilb_on",
+      "y": 180
+    },
+
+
+
+    "facing=south,z_align=positive,lit=false": {
+      "model": "ctl:block/lb/vertical_slab_ilb",
+      "y": 90
+    },
+    "facing=south,z_align=positive,lit=true": {
+      "model": "ctl:block/lb/vertical_slab_ilb_on",
+      "y": 90
+    },
+
+    "facing=south,z_align=negative,lit=false": {
+      "model": "ctl:block/lb/vertical_slab_ilb",
+      "y": 270
+    },
+    "facing=south,z_align=negative,lit=true": {
+      "model": "ctl:block/lb/vertical_slab_ilb_on",
+      "y": 270
+    },
+
+
+
+    "facing=west,z_align=positive,lit=false": {
+      "model": "ctl:block/lb/vertical_slab_ilb",
+      "y": 180
+    },
+    "facing=west,z_align=positive,lit=true": {
+      "model": "ctl:block/lb/vertical_slab_ilb_on",
+      "y": 180
+    },
+
+    "facing=west,z_align=negative,lit=false": {
+      "model": "ctl:block/lb/vertical_slab_ilb",
+      "y": 0
+    },
+    "facing=west,z_align=negative,lit=true": {
+      "model": "ctl:block/lb/vertical_slab_ilb_on",
+      "y": 0
+    }
+  }
+}
