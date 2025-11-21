@@ -3,6 +3,8 @@
   "ingredient": {
     "item": "ctl:htlb_block"
   },
-  "result": "ctl:halfpanel_htlb",
-  "count": 12
+  "result": {
+    "id": "ctl:vertical_halfpanel_htlb",
+    "count": 12
+  }
 }

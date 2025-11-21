@@ -3,6 +3,8 @@
   "ingredient": {
     "item": "ctl:ilb_block"
   },
-  "result": "ctl:panel_ilb",
-  "count": 6
+  "result": {
+    "id": "ctl:halfpanel_ilb",
+    "count": 12
+  }
 }

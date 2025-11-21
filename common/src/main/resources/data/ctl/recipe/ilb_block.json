@@ -3,44 +3,34 @@
   "ingredient": {
     "tag": "ctl:recipe_glass"
   },
-  "transitionalItem": {
-    "item": "ctl:ic_htlb_block"
+  "transitional_item": {
+    "id": "ctl:ic_ilb_block"
   },
   "sequence": [
     {
       "type": "create:deploying",
       "ingredients": [
-        { "item": "ctl:ic_htlb_block" },
-        { "item": "minecraft:redstone" }
-      ],
-      "results": [
-        { "item": "ctl:ic_htlb_block" }
-      ]
-    },
-    {
-      "type": "create:deploying",
-      "ingredients": [
-        { "item": "ctl:ic_htlb_block" },
+        { "item": "ctl:ic_ilb_block" },
         { "item": "minecraft:glowstone_dust" }
       ],
       "results": [
-        { "item": "ctl:ic_htlb_block" }
+        { "id": "ctl:ic_ilb_block" }
       ]
     },
     {
       "type": "create:deploying",
       "ingredients": [
-        { "item": "ctl:ic_htlb_block" },
+        { "item": "ctl:ic_ilb_block" },
         { "item": "minecraft:amethyst_shard" }
       ],
       "results": [
-        { "item": "ctl:ic_htlb_block" }
+        { "id": "ctl:ic_ilb_block" }
       ]
     }
   ],
   "results": [
     {
-      "item": "ctl:htlb_block",
+      "id": "ctl:ilb_block",
       "chance": 1.0
     }
   ],
