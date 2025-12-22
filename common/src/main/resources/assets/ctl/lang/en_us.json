@@ -23,5 +23,9 @@
   "block.ctl.htlb_block": "Head- Tail Light Block",
 
   "item.ctl.ic_htlb_block": "Incomplete Head- Tail Light",
-  "item.ctl.ic_ilb_block": "Incomplete Interior Light"
+  "item.ctl.ic_ilb_block": "Incomplete Interior Light",
+
+  "text.ctl.htlb.unlocked": "Light is now unlocked",
+  "text.ctl.htlb.locked": "Light is now locked",
+  "text.ctl.htlb.islocked": "Light is locked. Unlock it with a Wrench"
 }

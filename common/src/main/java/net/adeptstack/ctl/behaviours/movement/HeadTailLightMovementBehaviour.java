@@ -16,6 +16,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import net.minecraft.world.phys.Vec3;
 
+@SuppressWarnings("D")
 public class HeadTailLightMovementBehaviour implements MovementBehaviour {
 
     @Override
@@ -26,14 +27,20 @@ public class HeadTailLightMovementBehaviour implements MovementBehaviour {
             return;
 
         boolean open = structureBlockInfo.state().getValue(LightBlockBase.LIT);
+        boolean locked = structureBlockInfo.state().getValue(HeadTailLightBlockBase.IS_LOCKED);
         if (!context.world.isClientSide())
             tickLIT(context, open);
+
+        if (!open && !locked) {
+            return;
+        }
 
         int ticksOpen = context.data.getInt("OpenTicks");
         ticksOpen++;
         context.data.putInt("OpenTicks", ticksOpen);
         if (ticksOpen > 20) {
             BlockPos pos = context.localPos;
+            int oldLightMode = context.state.getValue(HeadTailLightBlockBase.LIGHT_MODE);
             if (context.contraption.entity instanceof CarriageContraptionEntity cce && context.contraption instanceof CarriageContraption cc) {
                 Direction assemblyDirection = cc.getAssemblyDirection();
                 if (assemblyDirection == Direction.UP || assemblyDirection == Direction.DOWN) {
@@ -127,6 +134,18 @@ public class HeadTailLightMovementBehaviour implements MovementBehaviour {
                         context.contraption.entity.setBlock(pos, new StructureTemplate.StructureBlockInfo(pos, context.state, structureBlockInfo.nbt()));
                     } else if (value.x < 0 && localXZ < 0) {
                         context.state = context.state .setValue(HeadTailLightBlockBase.LIGHT_MODE, 1);
+                        context.contraption.entity.setBlock(pos, new StructureTemplate.StructureBlockInfo(pos, context.state, structureBlockInfo.nbt()));
+                    }
+                }
+
+                if (locked) {
+                    if (context.state.getValue(HeadTailLightBlockBase.LIGHT_MODE) != oldLightMode) {
+                        context.state = context.state .setValue(HeadTailLightBlockBase.LIGHT_MODE, oldLightMode);
+                        context.state = context.state .setValue(HeadTailLightBlockBase.LIT, false);
+                        context.contraption.entity.setBlock(pos, new StructureTemplate.StructureBlockInfo(pos, context.state, structureBlockInfo.nbt()));
+                    }
+                    else {
+                        context.state = context.state .setValue(HeadTailLightBlockBase.LIT, true);
                         context.contraption.entity.setBlock(pos, new StructureTemplate.StructureBlockInfo(pos, context.state, structureBlockInfo.nbt()));
                     }
                 }
