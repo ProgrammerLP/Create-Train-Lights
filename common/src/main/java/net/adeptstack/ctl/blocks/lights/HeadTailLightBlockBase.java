@@ -26,12 +26,13 @@ public class HeadTailLightBlockBase extends LightBlockBase {
 
         this.registerDefaultState(this.stateDefinition.any()
                 .setValue(LIGHT_MODE, 0)
+                .setValue(IS_LOCKED, true)
         );
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         super.createBlockStateDefinition(pBuilder);
-        pBuilder.add(LIGHT_MODE);
+        pBuilder.add(LIGHT_MODE).add(IS_LOCKED);
     }
 
     @Override
