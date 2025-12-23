@@ -26,7 +26,7 @@ public class HeadTailLightBlockBase extends LightBlockBase {
 
         this.registerDefaultState(this.stateDefinition.any()
                 .setValue(LIGHT_MODE, 0)
-                .setValue(IS_LOCKED, true)
+                .setValue(IS_LOCKED, false)
         );
     }
 
@@ -55,6 +55,7 @@ public class HeadTailLightBlockBase extends LightBlockBase {
             if (state.getValue(IS_LOCKED)) {
                 if (!level.isClientSide)
                     player.displayClientMessage(Component.translatable("text.ctl.htlb.islocked"), true);
+                level.playSound(player, pos, SoundEvents.ITEM_BREAK, SoundSource.BLOCKS, 1F, 1.5f);
                 return InteractionResult.PASS;
             }
 

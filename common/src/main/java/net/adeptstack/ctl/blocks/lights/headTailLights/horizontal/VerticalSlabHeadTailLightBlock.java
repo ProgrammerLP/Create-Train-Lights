@@ -29,7 +29,9 @@ public class VerticalSlabHeadTailLightBlock extends HorizontalHeadTailLightBlock
         super(properties);
 
         this.registerDefaultState(this.stateDefinition.any()
-                .setValue(Z_ALIGN, EBlockZPositionLite.POSITIVE));
+                .setValue(Z_ALIGN, EBlockZPositionLite.POSITIVE)
+                .setValue(IS_LOCKED, false)
+        );
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
@@ -80,6 +82,7 @@ public class VerticalSlabHeadTailLightBlock extends HorizontalHeadTailLightBlock
         return stateForPlacement
                 .setValue(FACING, context.getHorizontalDirection().getOpposite())
                 .setValue(LIT, false)
-                .setValue(Z_ALIGN, zAlign);
+                .setValue(Z_ALIGN, zAlign)
+                .setValue(IS_LOCKED, false);
     }
 }
