@@ -46,7 +46,9 @@ public class QuarterHeadTailLightBlock extends HorizontalHeadTailLightBlock {
         super(properties);
 
         this.registerDefaultState(this.stateDefinition.any()
-                .setValue(IBP, EBlockPlacePosition.CENTER));
+                .setValue(IBP, EBlockPlacePosition.CENTER)
+                .setValue(IS_LOCKED, false)
+        );
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
@@ -121,7 +123,8 @@ public class QuarterHeadTailLightBlock extends HorizontalHeadTailLightBlock {
         return this.defaultBlockState()
                 .setValue(FACING, finalFacing)
                 .setValue(LIT, false)
-                .setValue(IBP, placePosition);
+                .setValue(IBP, placePosition)
+                .setValue(IS_LOCKED, false);
     }
 
     private static @NotNull EBlockPlacePosition getEBlockPlacePosition(double u, double v) {

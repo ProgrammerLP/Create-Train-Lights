@@ -36,7 +36,9 @@ public class VerticalHalfPanelHeadTailLightBlock extends HorizontalHeadTailLight
         super(properties);
 
         this.registerDefaultState(this.stateDefinition.any()
-                .setValue(Z_ALIGN, EBlockZPosition.CENTER));
+                .setValue(Z_ALIGN, EBlockZPosition.CENTER)
+                .setValue(IS_LOCKED, false)
+        );
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
@@ -78,7 +80,8 @@ public class VerticalHalfPanelHeadTailLightBlock extends HorizontalHeadTailLight
         return stateForPlacement
                 .setValue(FACING, direction)
                 .setValue(LIT, false)
-                .setValue(Z_ALIGN, zAlign);
+                .setValue(Z_ALIGN, zAlign)
+                .setValue(IS_LOCKED, false);
     }
 
     private static double getLocalOffset(BlockPlaceContext context, Direction clickedFace) {

@@ -19,6 +19,7 @@ public class HorizontalHeadTailLightBlock extends HeadTailLightBlockBase {
 
         this.registerDefaultState(this.stateDefinition.any()
                 .setValue(FACING, Direction.NORTH)
+                .setValue(IS_LOCKED, false)
         );
     }
 
@@ -39,6 +40,7 @@ public class HorizontalHeadTailLightBlock extends HeadTailLightBlockBase {
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         return this.defaultBlockState()
                 .setValue(FACING, context.getHorizontalDirection().getOpposite())
-                .setValue(LIT, false);
+                .setValue(LIT, false)
+                .setValue(IS_LOCKED, false);
     }
 }

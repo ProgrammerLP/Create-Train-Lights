@@ -2,25 +2,132 @@
   "itemGroup.ctl.ctl_tab": "Create Train Lights",
 
   "block.ctl.grid_ilb": "Grid Interior Light",
+  "block.ctl.grid_ilb.tooltip.summary": "Use it on _trains_ to get _realistic interior lights_.",
+  "block.ctl.grid_ilb.tooltip.condition1": "When Right-Clicked",
+  "block.ctl.grid_ilb.tooltip.behaviour1": "Turns the light on or off (also on assembled Trains).",
+
   "block.ctl.sloped_ilb": "Sloped Interior Light",
+  "block.ctl.sloped_ilb.tooltip.summary": "Use it on _trains_ to get _realistic interior lights_.",
+  "block.ctl.sloped_ilb.tooltip.condition1": "When Right-Clicked",
+  "block.ctl.sloped_ilb.tooltip.behaviour1": "Turns the light on or off (also on assembled Trains).",
+
   "block.ctl.panel_ilb": "Interior Light Panel",
+  "block.ctl.panel_ilb.tooltip.summary": "Use it on _trains_ to get _realistic interior lights_.",
+  "block.ctl.panel_ilb.tooltip.condition1": "When Right-Clicked",
+  "block.ctl.panel_ilb.tooltip.behaviour1": "Turns the light on or off (also on assembled Trains).",
+
   "block.ctl.halfpanel_ilb": "Interior Light Halfpanel",
+  "block.ctl.halfpanel_ilb.tooltip.summary": "Use it on _trains_ to get _realistic interior lights_.",
+  "block.ctl.halfpanel_ilb.tooltip.condition1": "When Right-Clicked",
+  "block.ctl.halfpanel_ilb.tooltip.behaviour1": "Turns the light on or off (also on assembled Trains).",
+
   "block.ctl.vertical_halfpanel_ilb": "Vertical Interior Light Halfpanel",
+  "block.ctl.vertical_halfpanel_ilb.tooltip.summary": "Use it on _trains_ to get _realistic interior lights_.",
+  "block.ctl.vertical_halfpanel_ilb.tooltip.condition1": "When Right-Clicked",
+  "block.ctl.vertical_halfpanel_ilb.tooltip.behaviour1": "Turns the light on or off (also on assembled Trains).",
+
   "block.ctl.quarter_ilb": "Quarter Interior Light",
+  "block.ctl.quarter_ilb.tooltip.summary": "Use it on _trains_ to get _realistic interior lights_.",
+  "block.ctl.quarter_ilb.tooltip.condition1": "When Right-Clicked",
+  "block.ctl.quarter_ilb.tooltip.behaviour1": "Turns the light on or off (also on assembled Trains).",
+
   "block.ctl.vertical_step_ilb": "Vertical Step Interior Light",
+  "block.ctl.vertical_step_ilb.tooltip.summary": "Use it on _trains_ to get _realistic interior lights_.",
+  "block.ctl.vertical_step_ilb.tooltip.condition1": "When Right-Clicked",
+  "block.ctl.vertical_step_ilb.tooltip.behaviour1": "Turns the light on or off (also on assembled Trains).",
+
   "block.ctl.step_ilb": "Step Interior Light",
+  "block.ctl.step_ilb.tooltip.summary": "Use it on _trains_ to get _realistic interior lights_.",
+  "block.ctl.step_ilb.tooltip.condition1": "When Right-Clicked",
+  "block.ctl.step_ilb.tooltip.behaviour1": "Turns the light on or off (also on assembled Trains).",
+
   "block.ctl.slab_ilb": "Slab Interior Light",
+  "block.ctl.slab_ilb.tooltip.summary": "Use it on _trains_ to get _realistic interior lights_.",
+  "block.ctl.slab_ilb.tooltip.condition1": "When Right-Clicked",
+  "block.ctl.slab_ilb.tooltip.behaviour1": "Turns the light on or off (also on assembled Trains).",
+
+
 
   "block.ctl.panel_htlb": "Head- Tail Light Panel",
+  "block.ctl.panel_htlb.tooltip.summary": "Use it on _trains_ to get _realistic lights_ which changing color depending on the train's direction.",
+  "block.ctl.panel_htlb.tooltip.condition1": "When Right-Clicked",
+  "block.ctl.panel_htlb.tooltip.behaviour1": "Turns the light on or off (also on assembled Trains).",
+  "block.ctl.panel_htlb.tooltip.condition2": "When Shift Right-Clicked",
+  "block.ctl.panel_htlb.tooltip.behaviour2": "Cycles through the colors of the light. (White/Red)",
+  "block.ctl.panel_htlb.tooltip.condition3": "When Shift Right-Clicked with a Wrench",
+  "block.ctl.panel_htlb.tooltip.behaviour3": "Locks or unlocks the light. (When locked, the light will switch between locked color and on/off depending on the train's direction)",
+
   "block.ctl.halfpanel_htlb": "Head- Tail Light Halfpanel",
+  "block.ctl.halfpanel_htlb.tooltip.summary": "Use it on _trains_ to get _realistic lights_ which changing color depending on the train's direction.",
+  "block.ctl.halfpanel_htlb.tooltip.condition1": "When Right-Clicked",
+  "block.ctl.halfpanel_htlb.tooltip.behaviour1": "Turns the light on or off (also on assembled Trains).",
+  "block.ctl.halfpanel_htlb.tooltip.condition2": "When Shift Right-Clicked",
+  "block.ctl.halfpanel_htlb.tooltip.behaviour2": "Cycles through the colors of the light. (White/Red)",
+  "block.ctl.halfpanel_htlb.tooltip.condition3": "When Shift Right-Clicked with a Wrench",
+  "block.ctl.halfpanel_htlb.tooltip.behaviour3": "Locks or unlocks the light. (When locked, the light will switch between locked color and on/off depending on the train's direction)",
+
   "block.ctl.vertical_halfpanel_htlb": "Vertical Head- Tail Light Halfpanel",
+  "block.ctl.vertical_halfpanel_htlb.tooltip.summary": "Use it on _trains_ to get _realistic lights_ which changing color depending on the train's direction.",
+  "block.ctl.vertical_halfpanel_htlb.tooltip.condition1": "When Right-Clicked",
+  "block.ctl.vertical_halfpanel_htlb.tooltip.behaviour1": "Turns the light on or off (also on assembled Trains).",
+  "block.ctl.vertical_halfpanel_htlb.tooltip.condition2": "When Shift Right-Clicked",
+  "block.ctl.vertical_halfpanel_htlb.tooltip.behaviour2": "Cycles through the colors of the light. (White/Red)",
+  "block.ctl.vertical_halfpanel_htlb.tooltip.condition3": "When Shift Right-Clicked with a Wrench",
+  "block.ctl.vertical_halfpanel_htlb.tooltip.behaviour3": "Locks or unlocks the light. (When locked, the light will switch between locked color and on/off depending on the train's direction)",
+
   "block.ctl.quarter_htlb": "Quarter Head- Tail Light",
+  "block.ctl.quarter_htlb.tooltip.summary": "Use it on _trains_ to get _realistic lights_ which changing color depending on the train's direction.",
+  "block.ctl.quarter_htlb.tooltip.condition1": "When Right-Clicked",
+  "block.ctl.quarter_htlb.tooltip.behaviour1": "Turns the light on or off (also on assembled Trains).",
+  "block.ctl.quarter_htlb.tooltip.condition2": "When Shift Right-Clicked",
+  "block.ctl.quarter_htlb.tooltip.behaviour2": "Cycles through the colors of the light. (White/Red)",
+  "block.ctl.quarter_htlb.tooltip.condition3": "When Shift Right-Clicked with a Wrench",
+  "block.ctl.quarter_htlb.tooltip.behaviour3": "Locks or unlocks the light. (When locked, the light will switch between locked color and on/off depending on the train's direction)",
+
   "block.ctl.vertical_step_htlb": "Vertical Step Head- Tail Light",
+  "block.ctl.vertical_step_htlb.tooltip.summary": "Use it on _trains_ to get _realistic lights_ which changing color depending on the train's direction.",
+  "block.ctl.vertical_step_htlb.tooltip.condition1": "When Right-Clicked",
+  "block.ctl.vertical_step_htlb.tooltip.behaviour1": "Turns the light on or off (also on assembled Trains).",
+  "block.ctl.vertical_step_htlb.tooltip.condition2": "When Shift Right-Clicked",
+  "block.ctl.vertical_step_htlb.tooltip.behaviour2": "Cycles through the colors of the light. (White/Red)",
+  "block.ctl.vertical_step_htlb.tooltip.condition3": "When Shift Right-Clicked with a Wrench",
+  "block.ctl.vertical_step_htlb.tooltip.behaviour3": "Locks or unlocks the light. (When locked, the light will switch between locked color and on/off depending on the train's direction)",
+
   "block.ctl.step_htlb": "Step Head- Tail Light",
+  "block.ctl.step_htlb.tooltip.summary": "Use it on _trains_ to get _realistic lights_ which changing color depending on the train's direction.",
+  "block.ctl.step_htlb.tooltip.condition1": "When Right-Clicked",
+  "block.ctl.step_htlb.tooltip.behaviour1": "Turns the light on or off (also on assembled Trains).",
+  "block.ctl.step_htlb.tooltip.condition2": "When Shift Right-Clicked",
+  "block.ctl.step_htlb.tooltip.behaviour2": "Cycles through the colors of the light. (White/Red)",
+  "block.ctl.step_htlb.tooltip.condition3": "When Shift Right-Clicked with a Wrench",
+  "block.ctl.step_htlb.tooltip.behaviour3": "Locks or unlocks the light. (When locked, the light will switch between locked color and on/off depending on the train's direction)",
+
   "block.ctl.vertical_slab_htlb": "Slab Head- Tail Light",
+  "block.ctl.vertical_slab_htlb.tooltip.summary": "Use it on _trains_ to get _realistic lights_ which changing color depending on the train's direction.",
+  "block.ctl.vertical_slab_htlb.tooltip.condition1": "When Right-Clicked",
+  "block.ctl.vertical_slab_htlb.tooltip.behaviour1": "Turns the light on or off (also on assembled Trains).",
+  "block.ctl.vertical_slab_htlb.tooltip.condition2": "When Shift Right-Clicked",
+  "block.ctl.vertical_slab_htlb.tooltip.behaviour2": "Cycles through the colors of the light. (White/Red)",
+  "block.ctl.vertical_slab_htlb.tooltip.condition3": "When Shift Right-Clicked with a Wrench",
+  "block.ctl.vertical_slab_htlb.tooltip.behaviour3": "Locks or unlocks the light. (When locked, the light will switch between locked color and on/off depending on the train's direction)",
+
+
 
   "block.ctl.ilb_block": "Interior Light Block",
+  "block.ctl.ilb_block.tooltip.summary": "Use it on _trains_ to get _realistic interior lights_.",
+  "block.ctl.ilb_block.tooltip.condition1": "When Right-Clicked",
+  "block.ctl.ilb_block.tooltip.behaviour1": "Turns the light on or off (also on assembled Trains).",
+
   "block.ctl.htlb_block": "Head- Tail Light Block",
+  "block.ctl.htlb_block.tooltip.summary": "Use it on _trains_ to get _realistic lights_ which changing color depending on the train's direction.",
+  "block.ctl.htlb_block.tooltip.condition1": "When Right-Clicked",
+  "block.ctl.htlb_block.tooltip.behaviour1": "Turns the light on or off (also on assembled Trains).",
+  "block.ctl.htlb_block.tooltip.condition2": "When Shift Right-Clicked",
+  "block.ctl.htlb_block.tooltip.behaviour2": "Cycles through the colors of the light. (White/Red)",
+  "block.ctl.htlb_block.tooltip.condition3": "When Shift Right-Clicked with a Wrench",
+  "block.ctl.htlb_block.tooltip.behaviour3": "Locks or unlocks the light. (When locked, the light will switch between locked color and on/off depending on the train's direction)",
+
+
 
   "item.ctl.ic_htlb_block": "Incomplete Head- Tail Light",
   "item.ctl.ic_ilb_block": "Incomplete Interior Light",
