@@ -1,0 +1,138 @@
+{
+  "itemGroup.ctl.ctl_tab": "Create Train Lights",
+
+  "block.ctl.grid_ilb": "Luz interior de rejilla",
+  "block.ctl.grid_ilb.tooltip.summary": "Úsalo en _trenes_ para obtener _luces interiores realistas_.",
+  "block.ctl.grid_ilb.tooltip.condition1": "Al hacer clic derecho",
+  "block.ctl.grid_ilb.tooltip.behaviour1": "Enciende o apaga la luz (también en trenes ensamblados).",
+
+  "block.ctl.sloped_ilb": "Luz interior inclinada",
+  "block.ctl.sloped_ilb.tooltip.summary": "Úsalo en _trenes_ para obtener _luces interiores realistas_.",
+  "block.ctl.sloped_ilb.tooltip.condition1": "Al hacer clic derecho",
+  "block.ctl.sloped_ilb.tooltip.behaviour1": "Enciende o apaga la luz (también en trenes ensamblados).",
+
+  "block.ctl.panel_ilb": "Panel de luz interior",
+  "block.ctl.panel_ilb.tooltip.summary": "Úsalo en _trenes_ para obtener _luces interiores realistas_.",
+  "block.ctl.panel_ilb.tooltip.condition1": "Al hacer clic derecho",
+  "block.ctl.panel_ilb.tooltip.behaviour1": "Enciende o apaga la luz (también en trenes ensamblados).",
+
+  "block.ctl.halfpanel_ilb": "Mediopanel de luz interior",
+  "block.ctl.halfpanel_ilb.tooltip.summary": "Úsalo en _trenes_ para obtener _luces interiores realistas_.",
+  "block.ctl.halfpanel_ilb.tooltip.condition1": "Al hacer clic derecho",
+  "block.ctl.halfpanel_ilb.tooltip.behaviour1": "Enciende o apaga la luz (también en trenes ensamblados).",
+
+  "block.ctl.vertical_halfpanel_ilb": "Mediopanel vertical de luz interior",
+  "block.ctl.vertical_halfpanel_ilb.tooltip.summary": "Úsalo en _trenes_ para obtener _luces interiores realistas_.",
+  "block.ctl.vertical_halfpanel_ilb.tooltip.condition1": "Al hacer clic derecho",
+  "block.ctl.vertical_halfpanel_ilb.tooltip.behaviour1": "Enciende o apaga la luz (también en trenes ensamblados).",
+
+  "block.ctl.quarter_ilb": "Luz interior cuarto",
+  "block.ctl.quarter_ilb.tooltip.summary": "Úsalo en _trenes_ para obtener _luces interiores realistas_.",
+  "block.ctl.quarter_ilb.tooltip.condition1": "Al hacer clic derecho",
+  "block.ctl.quarter_ilb.tooltip.behaviour1": "Enciende o apaga la luz (también en trenes ensamblados).",
+
+  "block.ctl.vertical_step_ilb": "Luz interior escalonada vertical",
+  "block.ctl.vertical_step_ilb.tooltip.summary": "Úsalo en _trenes_ para obtener _luces interiores realistas_.",
+  "block.ctl.vertical_step_ilb.tooltip.condition1": "Al hacer clic derecho",
+  "block.ctl.vertical_step_ilb.tooltip.behaviour1": "Enciende o apaga la luz (también en trenes ensamblados).",
+
+  "block.ctl.step_ilb": "Luz interior escalonada",
+  "block.ctl.step_ilb.tooltip.summary": "Úsalo en _trenes_ para obtener _luces interiores realistas_.",
+  "block.ctl.step_ilb.tooltip.condition1": "Al hacer clic derecho",
+  "block.ctl.step_ilb.tooltip.behaviour1": "Enciende o apaga la luz (también en trenes ensamblados).",
+
+  "block.ctl.slab_ilb": "Luz interior losa",
+  "block.ctl.slab_ilb.tooltip.summary": "Úsalo en _trenes_ para obtener _luces interiores realistas_.",
+  "block.ctl.slab_ilb.tooltip.condition1": "Al hacer clic derecho",
+  "block.ctl.slab_ilb.tooltip.behaviour1": "Enciende o apaga la luz (también en trenes ensamblados).",
+
+
+
+  "block.ctl.panel_htlb": "Panel de luz frontal/trasera",
+  "block.ctl.panel_htlb.tooltip.summary": "Úsalo en _trenes_ para obtener _luces realistas_ que cambian de color dependiendo de la dirección del tren.",
+  "block.ctl.panel_htlb.tooltip.condition1": "Al hacer clic derecho",
+  "block.ctl.panel_htlb.tooltip.behaviour1": "Enciende o apaga la luz (también en trenes ensamblados).",
+  "block.ctl.panel_htlb.tooltip.condition2": "Al hacer clic derecho con Mayús",
+  "block.ctl.panel_htlb.tooltip.behaviour2": "Cambia entre los colores de la luz. (Blanco/Rojo)",
+  "block.ctl.panel_htlb.tooltip.condition3": "Al hacer clic derecho con Mayús con una llave inglesa",
+  "block.ctl.panel_htlb.tooltip.behaviour3": "Bloquea o desbloquea la luz. (Cuando está bloqueada, la luz cambiará entre el color bloqueado y encendido/apagado dependiendo de la dirección del tren)",
+
+  "block.ctl.halfpanel_htlb": "Mediopanel de luz frontal/trasera",
+  "block.ctl.halfpanel_htlb.tooltip.summary": "Úsalo en _trenes_ para obtener _luces realistas_ que cambian de color dependiendo de la dirección del tren.",
+  "block.ctl.halfpanel_htlb.tooltip.condition1": "Al hacer clic derecho",
+  "block.ctl.halfpanel_htlb.tooltip.behaviour1": "Enciende o apaga la luz (también en trenes ensamblados).",
+  "block.ctl.halfpanel_htlb.tooltip.condition2": "Al hacer clic derecho con Mayús",
+  "block.ctl.halfpanel_htlb.tooltip.behaviour2": "Cambia entre los colores de la luz. (Blanco/Rojo)",
+  "block.ctl.halfpanel_htlb.tooltip.condition3": "Al hacer clic derecho con Mayús con una llave inglesa",
+  "block.ctl.halfpanel_htlb.tooltip.behaviour3": "Bloquea o desbloquea la luz. (Cuando está bloqueada, la luz cambiará entre el color bloqueado y encendido/apagado dependiendo de la dirección del tren)",
+
+  "block.ctl.vertical_halfpanel_htlb": "Mediopanel vertical de luz frontal/trasera",
+  "block.ctl.vertical_halfpanel_htlb.tooltip.summary": "Úsalo en _trenes_ para obtener _luces realistas_ que cambian de color dependiendo de la dirección del tren.",
+  "block.ctl.vertical_halfpanel_htlb.tooltip.condition1": "Al hacer clic derecho",
+  "block.ctl.vertical_halfpanel_htlb.tooltip.behaviour1": "Enciende o apaga la luz (también en trenes ensamblados).",
+  "block.ctl.vertical_halfpanel_htlb.tooltip.condition2": "Al hacer clic derecho con Mayús",
+  "block.ctl.vertical_halfpanel_htlb.tooltip.behaviour2": "Cambia entre los colores de la luz. (Blanco/Rojo)",
+  "block.ctl.vertical_halfpanel_htlb.tooltip.condition3": "Al hacer clic derecho con Mayús con una llave inglesa",
+  "block.ctl.vertical_halfpanel_htlb.tooltip.behaviour3": "Bloquea o desbloquea la luz. (Cuando está bloqueada, la luz cambiará entre el color bloqueado y encendido/apagado dependiendo de la dirección del tren)",
+
+  "block.ctl.quarter_htlb": "Luz frontal/trasera cuarto",
+  "block.ctl.quarter_htlb.tooltip.summary": "Úsalo en _trenes_ para obtener _luces realistas_ que cambian de color dependiendo de la dirección del tren.",
+  "block.ctl.quarter_htlb.tooltip.condition1": "Al hacer clic derecho",
+  "block.ctl.quarter_htlb.tooltip.behaviour1": "Enciende o apaga la luz (también en trenes ensamblados).",
+  "block.ctl.quarter_htlb.tooltip.condition2": "Al hacer clic derecho con Mayús",
+  "block.ctl.quarter_htlb.tooltip.behaviour2": "Cambia entre los colores de la luz. (Blanco/Rojo)",
+  "block.ctl.quarter_htlb.tooltip.condition3": "Al hacer clic derecho con Mayús con una llave inglesa",
+  "block.ctl.quarter_htlb.tooltip.behaviour3": "Bloquea o desbloquea la luz. (Cuando está bloqueada, la luz cambiará entre el color bloqueado y encendido/apagado dependiendo de la dirección del tren)",
+
+  "block.ctl.vertical_step_htlb": "Luz frontal/trasera escalonada vertical",
+  "block.ctl.vertical_step_htlb.tooltip.summary": "Úsalo en _trenes_ para obtener _luces realistas_ que cambian de color dependiendo de la dirección del tren.",
+  "block.ctl.vertical_step_htlb.tooltip.condition1": "Al hacer clic derecho",
+  "block.ctl.vertical_step_htlb.tooltip.behaviour1": "Enciende o apaga la luz (también en trenes ensamblados).",
+  "block.ctl.vertical_step_htlb.tooltip.condition2": "Al hacer clic derecho con Mayús",
+  "block.ctl.vertical_step_htlb.tooltip.behaviour2": "Cambia entre los colores de la luz. (Blanco/Rojo)",
+  "block.ctl.vertical_step_htlb.tooltip.condition3": "Al hacer clic derecho con Mayús con una llave inglesa",
+  "block.ctl.vertical_step_htlb.tooltip.behaviour3": "Bloquea o desbloquea la luz. (Cuando está bloqueada, la luz cambiará entre el color bloqueado y encendido/apagado dependiendo de la dirección del tren)",
+
+  "block.ctl.step_htlb": "Luz frontal/trasera escalonada",
+  "block.ctl.step_htlb.tooltip.summary": "Úsalo en _trenes_ para obtener _luces realistas_ que cambian de color dependiendo de la dirección del tren.",
+  "block.ctl.step_htlb.tooltip.condition1": "Al hacer clic derecho",
+  "block.ctl.step_htlb.tooltip.behaviour1": "Enciende o apaga la luz (también en trenes ensamblados).",
+  "block.ctl.step_htlb.tooltip.condition2": "Al hacer clic derecho con Mayús",
+  "block.ctl.step_htlb.tooltip.behaviour2": "Cambia entre los colores de la luz. (Blanco/Rojo)",
+  "block.ctl.step_htlb.tooltip.condition3": "Al hacer clic derecho con Mayús con una llave inglesa",
+  "block.ctl.step_htlb.tooltip.behaviour3": "Bloquea o desbloquea la luz. (Cuando está bloqueada, la luz cambiará entre el color bloqueado y encendido/apagado dependiendo de la dirección del tren)",
+
+  "block.ctl.vertical_slab_htlb": "Luz frontal/trasera losa",
+  "block.ctl.vertical_slab_htlb.tooltip.summary": "Úsalo en _trenes_ para obtener _luces realistas_ que cambian de color dependiendo de la dirección del tren.",
+  "block.ctl.vertical_slab_htlb.tooltip.condition1": "Al hacer clic derecho",
+  "block.ctl.vertical_slab_htlb.tooltip.behaviour1": "Enciende o apaga la luz (también en trenes ensamblados).",
+  "block.ctl.vertical_slab_htlb.tooltip.condition2": "Al hacer clic derecho con Mayús",
+  "block.ctl.vertical_slab_htlb.tooltip.behaviour2": "Cambia entre los colores de la luz. (Blanco/Rojo)",
+  "block.ctl.vertical_slab_htlb.tooltip.condition3": "Al hacer clic derecho con Mayús con una llave inglesa",
+  "block.ctl.vertical_slab_htlb.tooltip.behaviour3": "Bloquea o desbloquea la luz. (Cuando está bloqueada, la luz cambiará entre el color bloqueado y encendido/apagado dependiendo de la dirección del tren)",
+
+
+
+  "block.ctl.ilb_block": "Bloque de luz interior",
+  "block.ctl.ilb_block.tooltip.summary": "Úsalo en _trenes_ para obtener _luces interiores realistas_.",
+  "block.ctl.ilb_block.tooltip.condition1": "Al hacer clic derecho",
+  "block.ctl.ilb_block.tooltip.behaviour1": "Enciende o apaga la luz (también en trenes ensamblados).",
+
+  "block.ctl.htlb_block": "Bloque de luz frontal/trasera",
+  "block.ctl.htlb_block.tooltip.summary": "Úsalo en _trenes_ para obtener _luces realistas_ que cambian de color dependiendo de la dirección del tren.",
+  "block.ctl.htlb_block.tooltip.condition1": "Al hacer clic derecho",
+  "block.ctl.htlb_block.tooltip.behaviour1": "Enciende o apaga la luz (también en trenes ensamblados).",
+  "block.ctl.htlb_block.tooltip.condition2": "Al hacer clic derecho con Mayús",
+  "block.ctl.htlb_block.tooltip.behaviour2": "Cambia entre los colores de la luz. (Blanco/Rojo)",
+  "block.ctl.htlb_block.tooltip.condition3": "Al hacer clic derecho con Mayús con una llave inglesa",
+  "block.ctl.htlb_block.tooltip.behaviour3": "Bloquea o desbloquea la luz. (Cuando está bloqueada, la luz cambiará entre el color bloqueado y encendido/apagado dependiendo de la dirección del tren)",
+
+
+
+  "item.ctl.ic_htlb_block": "Luz frontal/trasera incompleta",
+  "item.ctl.ic_ilb_block": "Luz interior incompleta",
+
+  "text.ctl.htlb.unlocked": "La luz ahora está desbloqueada",
+  "text.ctl.htlb.locked": "La luz ahora está bloqueada",
+  "text.ctl.htlb.islocked": "La luz está bloqueada. Desbloquéala con una llave inglesa"
+}
