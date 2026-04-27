@@ -1,5 +1,5 @@
 {
-  "itemGroup.ctl.ctl_tab": "机械动力·列车灯",
+  "itemGroup.ctl.ctl_tab": "机械动力：列车灯",
 
   "block.ctl.grid_ilb": "网格车厢灯",
   "block.ctl.grid_ilb.tooltip.summary": "用在_列车上_可获得_逼真的车厢照明_。",
@@ -128,5 +128,5 @@
 
   "text.ctl.htlb.unlocked": "灯光已解锁",
   "text.ctl.htlb.locked": "灯光已锁定",
-  "text.ctl.htlb.islocked": "灯光已锁定。使用扳手解锁"
+  "text.ctl.htlb.islocked": "灯光已锁定，请使用扳手解锁"
 }
