@@ -41,7 +41,10 @@ public class LightBlockBase extends Block {
 
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-        level.setBlockAndUpdate(pos, state.setValue(LIT, !state.getValue(LIT)));
+        // Only the server changes the block. Doing it on the client too triggered a
+        // light engine relight that the server update overwrites moments later.
+        if (!level.isClientSide)
+            level.setBlockAndUpdate(pos, state.setValue(LIT, !state.getValue(LIT)));
         level.playSound(player, pos, SoundEvents.COMPARATOR_CLICK, SoundSource.BLOCKS, 1F, 0.5f);
         return InteractionResult.SUCCESS;
     }

@@ -38,29 +38,36 @@ public class HeadTailLightBlockBase extends LightBlockBase {
 
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+        // Only the server changes the block. Doing it on the client too triggered a
+        // light engine relight that the server update overwrites moments later.
+        boolean serverSide = !level.isClientSide;
+
         if (player.isHolding(AllItems.WRENCH.asItem())) {
             BlockState newState = state.cycle(IS_LOCKED);
-            level.setBlockAndUpdate(pos, newState);
+            if (serverSide)
+                level.setBlockAndUpdate(pos, newState);
             level.playSound(player, pos, SoundEvents.LODESTONE_COMPASS_LOCK, SoundSource.BLOCKS, 1F, 0.5f);
 
-            if (!level.isClientSide) {
+            if (serverSide) {
                 String key = newState.getValue(IS_LOCKED) ? "text.ctl.htlb.locked" : "text.ctl.htlb.unlocked";
                 player.displayClientMessage(Component.translatable(key), true);
             }
         }
         else if (!player.isShiftKeyDown()) {
-            level.setBlockAndUpdate(pos, state.cycle(LIT));
+            if (serverSide)
+                level.setBlockAndUpdate(pos, state.cycle(LIT));
             level.playSound(player, pos, SoundEvents.COMPARATOR_CLICK, SoundSource.BLOCKS, 1F, 0.5f);
         }
         else {
             if (state.getValue(IS_LOCKED)) {
-                if (!level.isClientSide)
+                if (serverSide)
                     player.displayClientMessage(Component.translatable("text.ctl.htlb.islocked"), true);
                 level.playSound(player, pos, SoundEvents.ITEM_BREAK, SoundSource.BLOCKS, 1F, 1.5f);
                 return InteractionResult.PASS;
             }
 
-            level.setBlockAndUpdate(pos, state.cycle(LIGHT_MODE));
+            if (serverSide)
+                level.setBlockAndUpdate(pos, state.cycle(LIGHT_MODE));
             level.playSound(player, pos, SoundEvents.COMPARATOR_CLICK, SoundSource.BLOCKS, 1F, 0.6f);
         }
         return InteractionResult.SUCCESS;
