@@ -42,11 +42,13 @@ public class ContraptionControlsMovingInteractionMixin {
                     Contraption cpt = c.anyAvailableEntity().getContraption();
 
                     cpt.setActorsActive(filter, !disable);
-                    ContraptionControlsBlockEntity.sendStatus(player, filter, !disable);
                     send(cpt.entity, filter, disable);
-
-                    AllSoundEvents.CONTROLLER_CLICK.play(player.level(), null, BlockPos.containing(contraptionEntity.toGlobalVector(Vec3.atCenterOf(localPos), 1)), 1, disable ? 0.8f : 1.5f);
                 }
+
+                // Status message and sound belong to the interaction, not to each carriage -
+                // a 10 car train used to send 10 identical packets and stack 10 identical sounds.
+                ContraptionControlsBlockEntity.sendStatus(player, filter, !disable);
+                AllSoundEvents.CONTROLLER_CLICK.play(player.level(), null, BlockPos.containing(contraptionEntity.toGlobalVector(Vec3.atCenterOf(localPos), 1)), 1, disable ? 0.8f : 1.5f);
             }
         }
     }
