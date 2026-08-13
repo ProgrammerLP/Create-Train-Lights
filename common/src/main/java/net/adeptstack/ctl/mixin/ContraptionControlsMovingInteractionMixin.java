@@ -18,7 +18,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate.StructureBlockInfo;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.fml.ISystemReportExtender;
 import org.apache.commons.lang3.tuple.MutablePair;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -36,8 +35,6 @@ public class ContraptionControlsMovingInteractionMixin {
     @Inject(method = "handlePlayerInteraction", remap = false, at = @At(value = "TAIL"), locals = LocalCapture.CAPTURE_FAILHARD)
     private void customHandlePlayerInteraction(Player player, InteractionHand activeHand, BlockPos localPos, AbstractContraptionEntity contraptionEntity, CallbackInfoReturnable<Boolean> cir, Contraption contraption, MutablePair<StructureBlockInfo, MovementContext> actor, MovementContext ctx, ItemStack filter, boolean disable) {
         if (contraptionEntity instanceof CarriageContraptionEntity cce) {
-            System.out.println("Hallo");
-            System.out.println(filter.getTag());
             if (filter.is(ItemTags.DOORS)) {
                 Carriage carriage = cce.getCarriage();
                 Train train = carriage.train;
@@ -45,11 +42,13 @@ public class ContraptionControlsMovingInteractionMixin {
                     Contraption cpt = c.anyAvailableEntity().getContraption();
 
                     cpt.setActorsActive(filter, !disable);
-                    ContraptionControlsBlockEntity.sendStatus(player, filter, !disable);
                     send(cpt.entity, filter, disable);
-
-                    AllSoundEvents.CONTROLLER_CLICK.play(player.level(), null, BlockPos.containing(contraptionEntity.toGlobalVector(Vec3.atCenterOf(localPos), 1)), 1, disable ? 0.8f : 1.5f);
                 }
+
+                // Status message and sound belong to the interaction, not to each carriage -
+                // a 10 car train used to send 10 identical packets and stack 10 identical sounds.
+                ContraptionControlsBlockEntity.sendStatus(player, filter, !disable);
+                AllSoundEvents.CONTROLLER_CLICK.play(player.level(), null, BlockPos.containing(contraptionEntity.toGlobalVector(Vec3.atCenterOf(localPos), 1)), 1, disable ? 0.8f : 1.5f);
             }
         }
     }
