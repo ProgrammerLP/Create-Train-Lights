@@ -4,8 +4,6 @@ import com.simibubi.create.content.contraptions.Contraption;
 import com.simibubi.create.content.contraptions.behaviour.SimpleBlockMovingInteraction;
 import net.adeptstack.ctl.blocks.lights.LightBlockBase;
 import net.minecraft.core.BlockPos;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -16,17 +14,14 @@ public class InteriorLightMovingInteraction extends SimpleBlockMovingInteraction
         if (!(currentState.getBlock() instanceof LightBlockBase))
             return currentState;
 
-        boolean trainLight = currentState.getBlock() instanceof LightBlockBase;
-        SoundEvent sound = currentState.getValue(LightBlockBase.LIT) ? trainLight ? null : SoundEvents.WOODEN_DOOR_CLOSE
-                : trainLight ? SoundEvents.IRON_DOOR_OPEN : SoundEvents.WOODEN_DOOR_OPEN;
-
-        currentState = currentState.cycle(LightBlockBase.LIT);
-
-        return currentState;
+        return currentState.cycle(LightBlockBase.LIT);
     }
 
     @Override
     protected boolean updateColliders() {
-        return true;
+        // LIT does not affect getShape/getCollisionShape, so the contraption's
+        // collider does not change - rebuilding it would re-join the VoxelShapes
+        // of every block on the contraption for nothing.
+        return false;
     }
 }
