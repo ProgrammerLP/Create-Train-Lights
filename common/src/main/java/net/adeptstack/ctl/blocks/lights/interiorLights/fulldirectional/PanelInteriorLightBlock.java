@@ -48,20 +48,22 @@ public class PanelInteriorLightBlock extends FullDirectionalInteriorLightBlock {
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        if (pState.getValue(FACING) == Direction.UP) {
+        Direction facing = pState.getValue(FACING);
+        EBlockZPosition zAlign = pState.getValue(Z_ALIGN);
+        if (facing == Direction.UP) {
             return SHAPE_U;
         }
-        else if (pState.getValue(FACING) == Direction.DOWN) {
+        else if (facing == Direction.DOWN) {
             return  SHAPE_D;
         }
-        else if (pState.getValue(Z_ALIGN) == EBlockZPosition.POSITIVE) {
-            return pState.getValue(FACING) == Direction.NORTH ? SHAPE_N : pState.getValue(FACING) == Direction.WEST ? SHAPE_W : pState.getValue(FACING) == Direction.SOUTH ? SHAPE_S : SHAPE_E;
+        else if (zAlign == EBlockZPosition.POSITIVE) {
+            return facing == Direction.NORTH ? SHAPE_N : facing == Direction.WEST ? SHAPE_W : facing == Direction.SOUTH ? SHAPE_S : SHAPE_E;
         }
-        else if (pState.getValue(Z_ALIGN) == EBlockZPosition.NEGATIVE) {
-            return pState.getValue(FACING) == Direction.NORTH ? SHAPE_S : pState.getValue(FACING) == Direction.WEST ? SHAPE_E : pState.getValue(FACING) == Direction.SOUTH ? SHAPE_N : SHAPE_W;
+        else if (zAlign == EBlockZPosition.NEGATIVE) {
+            return facing == Direction.NORTH ? SHAPE_S : facing == Direction.WEST ? SHAPE_E : facing == Direction.SOUTH ? SHAPE_N : SHAPE_W;
         }
         else {
-            return pState.getValue(FACING) == Direction.NORTH || pState.getValue(FACING) == Direction.SOUTH ? SHAPE_CT_SN : SHAPE_CT_EW;
+            return facing == Direction.NORTH || facing == Direction.SOUTH ? SHAPE_CT_SN : SHAPE_CT_EW;
         }
     }
 
