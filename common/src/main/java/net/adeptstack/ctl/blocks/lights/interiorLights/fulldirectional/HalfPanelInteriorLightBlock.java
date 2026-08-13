@@ -73,36 +73,39 @@ public class HalfPanelInteriorLightBlock extends FullDirectionalInteriorLightBlo
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        if (pState.getValue(FACING) == Direction.UP) {
-            if (pState.getValue(Z_ALIGN) == EBlockZPosition.POSITIVE) {
-                return pState.getValue(H_FACING) == Direction.NORTH || pState.getValue(H_FACING) == Direction.SOUTH ? SHAPE_U_P_SN : SHAPE_U_P_EW;
+        Direction facing = pState.getValue(FACING);
+        Direction hFacing = pState.getValue(H_FACING);
+        EBlockZPosition zAlign = pState.getValue(Z_ALIGN);
+        if (facing == Direction.UP) {
+            if (zAlign == EBlockZPosition.POSITIVE) {
+                return hFacing == Direction.NORTH || hFacing == Direction.SOUTH ? SHAPE_U_P_SN : SHAPE_U_P_EW;
             }
-            else if (pState.getValue(Z_ALIGN) == EBlockZPosition.CENTER) {
-                return pState.getValue(H_FACING) == Direction.NORTH || pState.getValue(H_FACING) == Direction.SOUTH ? SHAPE_U_C_SN : SHAPE_U_C_EW;
+            else if (zAlign == EBlockZPosition.CENTER) {
+                return hFacing == Direction.NORTH || hFacing == Direction.SOUTH ? SHAPE_U_C_SN : SHAPE_U_C_EW;
             }
-            else if (pState.getValue(Z_ALIGN) == EBlockZPosition.NEGATIVE) {
-                return pState.getValue(H_FACING) == Direction.NORTH || pState.getValue(H_FACING) == Direction.SOUTH ? SHAPE_U_N_SN : SHAPE_U_N_EW;
-            }
-        }
-        else if (pState.getValue(FACING) == Direction.DOWN) {
-            if (pState.getValue(Z_ALIGN) == EBlockZPosition.POSITIVE) {
-                return pState.getValue(H_FACING) == Direction.NORTH || pState.getValue(H_FACING) == Direction.SOUTH ? SHAPE_D_P_SN : SHAPE_D_P_EW;
-            }
-            else if (pState.getValue(Z_ALIGN) == EBlockZPosition.CENTER) {
-                return pState.getValue(H_FACING) == Direction.NORTH || pState.getValue(H_FACING) == Direction.SOUTH ? SHAPE_D_C_SN : SHAPE_D_C_EW;
-            }
-            else if (pState.getValue(Z_ALIGN) == EBlockZPosition.NEGATIVE) {
-                return pState.getValue(H_FACING) == Direction.NORTH || pState.getValue(H_FACING) == Direction.SOUTH ? SHAPE_D_N_SN : SHAPE_D_N_EW;
+            else if (zAlign == EBlockZPosition.NEGATIVE) {
+                return hFacing == Direction.NORTH || hFacing == Direction.SOUTH ? SHAPE_U_N_SN : SHAPE_U_N_EW;
             }
         }
-        else if (pState.getValue(Z_ALIGN) == EBlockZPosition.POSITIVE) {
-            return pState.getValue(FACING) == Direction.NORTH ? SHAPE_N_P : pState.getValue(FACING) == Direction.WEST ? SHAPE_W_P : pState.getValue(FACING) == Direction.SOUTH ? SHAPE_S_P : SHAPE_E_P;
+        else if (facing == Direction.DOWN) {
+            if (zAlign == EBlockZPosition.POSITIVE) {
+                return hFacing == Direction.NORTH || hFacing == Direction.SOUTH ? SHAPE_D_P_SN : SHAPE_D_P_EW;
+            }
+            else if (zAlign == EBlockZPosition.CENTER) {
+                return hFacing == Direction.NORTH || hFacing == Direction.SOUTH ? SHAPE_D_C_SN : SHAPE_D_C_EW;
+            }
+            else if (zAlign == EBlockZPosition.NEGATIVE) {
+                return hFacing == Direction.NORTH || hFacing == Direction.SOUTH ? SHAPE_D_N_SN : SHAPE_D_N_EW;
+            }
         }
-        else if (pState.getValue(Z_ALIGN) == EBlockZPosition.NEGATIVE) {
-            return pState.getValue(FACING) == Direction.NORTH ? SHAPE_N_N : pState.getValue(FACING) == Direction.WEST ? SHAPE_W_N : pState.getValue(FACING) == Direction.SOUTH ? SHAPE_S_N : SHAPE_E_N;
+        else if (zAlign == EBlockZPosition.POSITIVE) {
+            return facing == Direction.NORTH ? SHAPE_N_P : facing == Direction.WEST ? SHAPE_W_P : facing == Direction.SOUTH ? SHAPE_S_P : SHAPE_E_P;
+        }
+        else if (zAlign == EBlockZPosition.NEGATIVE) {
+            return facing == Direction.NORTH ? SHAPE_N_N : facing == Direction.WEST ? SHAPE_W_N : facing == Direction.SOUTH ? SHAPE_S_N : SHAPE_E_N;
         }
         else {
-            return pState.getValue(FACING) == Direction.NORTH ? SHAPE_N_C : pState.getValue(FACING) == Direction.WEST ? SHAPE_W_C : pState.getValue(FACING) == Direction.SOUTH ? SHAPE_S_C : SHAPE_E_C;
+            return facing == Direction.NORTH ? SHAPE_N_C : facing == Direction.WEST ? SHAPE_W_C : facing == Direction.SOUTH ? SHAPE_S_C : SHAPE_E_C;
         }
         return SHAPE_N_C;
     }

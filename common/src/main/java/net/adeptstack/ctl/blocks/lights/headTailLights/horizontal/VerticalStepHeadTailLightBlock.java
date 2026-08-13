@@ -33,14 +33,16 @@ public class VerticalStepHeadTailLightBlock extends VerticalHalfPanelHeadTailLig
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        if (pState.getValue(Z_ALIGN) == EBlockZPosition.POSITIVE) {
-            return pState.getValue(FACING) == Direction.NORTH ? SHAPE_N_P : pState.getValue(FACING) == Direction.WEST ? SHAPE_W_P : pState.getValue(FACING) == Direction.SOUTH ? SHAPE_S_P : SHAPE_E_P;
+        Direction facing = pState.getValue(FACING);
+        EBlockZPosition zAlign = pState.getValue(Z_ALIGN);
+        if (zAlign == EBlockZPosition.POSITIVE) {
+            return facing == Direction.NORTH ? SHAPE_N_P : facing == Direction.WEST ? SHAPE_W_P : facing == Direction.SOUTH ? SHAPE_S_P : SHAPE_E_P;
         }
-        else if (pState.getValue(Z_ALIGN) == EBlockZPosition.NEGATIVE) {
-            return pState.getValue(FACING) == Direction.NORTH ? SHAPE_N_N : pState.getValue(FACING) == Direction.WEST ? SHAPE_W_N : pState.getValue(FACING) == Direction.SOUTH ? SHAPE_S_N : SHAPE_E_N;
+        else if (zAlign == EBlockZPosition.NEGATIVE) {
+            return facing == Direction.NORTH ? SHAPE_N_N : facing == Direction.WEST ? SHAPE_W_N : facing == Direction.SOUTH ? SHAPE_S_N : SHAPE_E_N;
         }
         else {
-            return pState.getValue(FACING) == Direction.NORTH ? SHAPE_N_C : pState.getValue(FACING) == Direction.WEST ? SHAPE_W_C : pState.getValue(FACING) == Direction.SOUTH ? SHAPE_S_C : SHAPE_E_C;
+            return facing == Direction.NORTH ? SHAPE_N_C : facing == Direction.WEST ? SHAPE_W_C : facing == Direction.SOUTH ? SHAPE_S_C : SHAPE_E_C;
         }
     }
 }
